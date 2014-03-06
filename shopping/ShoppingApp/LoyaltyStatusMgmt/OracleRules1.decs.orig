@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="OracleRules1">
+    <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+        <repository type="SCA-Archive">
+            <path>LoyaltyStatusMgmt/oracle/rules/loyaltystatusmgmt/OracleRules1.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService name="OracleRules1_OracleRules1_DecisionService" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/OracleRules1/OracleRules1_OracleRules1_DecisionService">
+        <catalog>OracleRules1</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>loyaltystatusmgmt.OracleRules1.OracleRules1_DecisionService</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>loyaltystatusmgmt.OracleRules1.OracleRules1_DecisionService</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+    <schemaInformation>
+        <dictionary fqnPackage="loyaltystatusmgmt" fqnName="OracleRules1" updateNumber="27">
+            <schemaBrowser>
+                <package>com.sample.shopping</package>
+                <namespace>http://www.sample.com/shopping</namespace>
+            </schemaBrowser>
+            <schemaImport namespace="http://xmlns.oracle.com/bpel/workflow/task" localPart="Customer.xsd" schemaLocation="xsd/Humantask1WorkflowTask.xsd" package="">
+                <import namespace="http://xmlns.oracle.com/bpel/workflow/task" localPart="Customer.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel/workflow/task" localPart="Humantask1Payload.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel/workflow/common" localPart="WorkflowCommon.xsd"/>
+                <import namespace="http://www.sample.com/shopping" localPart="Customer.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" localPart="TaskEvidenceService.xsd"/>
+            </schemaImport>
+            <schemaImport namespace="http://xmlns.oracle.com/OracleRules1/OracleRules1_OracleRules1_DecisionService" localPart="CustomerPreferences.xsd" schemaLocation="xsd/OracleRules1_OracleRules1_DecisionServiceMessageTypes.xsd" package="">
+                <import namespace="http://xmlns.oracle.com/OracleRules1/OracleRules1_OracleRules1_DecisionService" localPart="CustomerPreferences.xsd"/>
+                <import namespace="http://xmlns.oracle.com/OracleRules1/OracleRules1_OracleRules1_DecisionService" localPart="OracleRules1_OracleRules1_DecisionServiceTypes.xsd"/>
+                <import namespace="http://www.sample.com/shopping" localPart="Customer.xsd"/>
+                <import namespace="http://customercomms/" localPart="CustomerPreferences.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel" localPart="BpelProcess.xsd"/>
+                <import namespace="http://xmlns.oracle.com/bpel/rules" localPart="DecisionServicePrimitiveTypes.xsd"/>
+            </schemaImport>
+        </dictionary>
+    </schemaInformation>
+</decisionServices>

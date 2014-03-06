@@ -1,0 +1,20 @@
+<adapter-config name="ReadCustomer" adapter="Database Adapter" wsdlLocation="ReadCustomer.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/shopping" UIConnectionName="shopping" adapterRef=""/>
+  <endpoint-activation portType="ReadCustomer_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="ReadCustomer.Customer"/>
+      <property name="QueryName" value="ReadCustomerSelect"/>
+      <property name="MappingsMetaDataURL" value="ReadCustomer-or-mappings.xml"/>
+      <property name="PollingStrategy" value="LogicalDeletePollingStrategy"/>
+      <property name="MarkReadColumn" value="PROC_STATUS"/>
+      <property name="MarkReadValue" value="PROCESSED"/>
+      <property name="PollingInterval" value="30"/>
+      <property name="MaxRaiseSize" value="1"/>
+      <property name="MaxTransactionSize" value="1"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

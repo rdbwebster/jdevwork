@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+   <ApplicationName>worklist</ApplicationName>
+   <LookupType>LOCAL</LookupType>
+   <TaskFlowDeploy>false</TaskFlowDeploy>
+   <TaskFlowServer>
+      <hostName/>
+      <httpPort/>
+      <httpsPort/>
+   </TaskFlowServer>
+<hwTaskFlow><WorkflowName>Humantask1</WorkflowName><TaskDefinitionNamespace>http://xmlns.oracle.com/ShoppingApp/LoyaltyStatusMgmt/Humantask1</TaskDefinitionNamespace><TaskFlowId>Humantask1_TaskFlow</TaskFlowId><TaskFlowFileName>WEB-INF/Humantask1_TaskFlow.xml</TaskFlowFileName></hwTaskFlow></hwTaskFlows>

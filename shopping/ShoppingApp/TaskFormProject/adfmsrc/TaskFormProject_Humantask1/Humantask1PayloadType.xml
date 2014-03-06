@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="Humantask1PayloadType" Package="TaskFormProject_Humantask1"
+          BeanClass="TaskFormProject_Humantask1.Humantask1PayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="customerToApprove" IsCollection="true"
+                     BeanClass="TaskFormProject_Humantask1.Customer"
+                     CollectionBeanClass="TaskFormProject_Humantask1.Customer_customerToApprove_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Customer To Approve"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="customerToApprove"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/bpel/workflow/task"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

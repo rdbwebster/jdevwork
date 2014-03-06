@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="CUSTOMER:db_table_type">TABLE</entry>
+   <entry key="CUSTOMER.LAST_NAME:db_column_size">40</entry>
+   <entry key="CUSTOMER.EMAIL:db_column_size">40</entry>
+   <entry key="CUSTOMER.LAST_NAME:db_column_not_null">false</entry>
+   <entry key="CUSTOMER.LOYALTY_STATUS:db_column_scale">0</entry>
+   <entry key="CUSTOMER.TOTAL_PURCHASES:db_column_precision">10</entry>
+   <entry key="CUSTOMER.FIRST_NAME:db_column_size">40</entry>
+   <entry key="CUSTOMER.TOTAL_PURCHASES:db_column_type">NUMBER</entry>
+   <entry key="CUSTOMER.FIRST_NAME:db_column_not_null">true</entry>
+   <entry key="return_single_result_set">false</entry>
+   <entry key="CUSTOMER.CUSTOMER_ID:db_column_type">VARCHAR2</entry>
+   <entry key="CUSTOMER:db_column_6">PROC_STATUS</entry>
+   <entry key="CUSTOMER.PROC_STATUS:db_column_type">VARCHAR2</entry>
+   <entry key="CUSTOMER:db_column_5">LOYALTY_STATUS</entry>
+   <entry key="CUSTOMER:db_column_4">TOTAL_PURCHASES</entry>
+   <entry key="CUSTOMER:db_column_3">EMAIL</entry>
+   <entry key="CUSTOMER.CUSTOMER_ID:db_column_not_null">true</entry>
+   <entry key="CUSTOMER:db_column_2">LAST_NAME</entry>
+   <entry key="CUSTOMER:db_column_1">FIRST_NAME</entry>
+   <entry key="CUSTOMER.PROC_STATUS:db_column_not_null">false</entry>
+   <entry key="CUSTOMER:db_column_0">CUSTOMER_ID</entry>
+   <entry key="root_descriptor_alias">CUSTOMER</entry>
+   <entry key="CUSTOMER.LAST_NAME:db_column_type">VARCHAR2</entry>
+   <entry key="CUSTOMER.EMAIL:db_column_type">VARCHAR2</entry>
+   <entry key="CUSTOMER.LOYALTY_STATUS:db_column_type">NUMBER</entry>
+   <entry key="CUSTOMER.LOYALTY_STATUS:db_column_not_null">false</entry>
+   <entry key="CUSTOMER.LOYALTY_STATUS:db_column_precision">2</entry>
+   <entry key="CUSTOMER.FIRST_NAME:db_column_type">VARCHAR2</entry>
+   <entry key="CUSTOMER.CUSTOMER_ID:db_column_size">40</entry>
+   <entry key="CUSTOMER.TOTAL_PURCHASES:db_column_scale">2</entry>
+   <entry key="CUSTOMER.TOTAL_PURCHASES:db_column_not_null">false</entry>
+   <entry key="CUSTOMER.EMAIL:db_column_not_null">false</entry>
+   <entry key="CUSTOMER.PROC_STATUS:db_column_size">10</entry>
+</properties>

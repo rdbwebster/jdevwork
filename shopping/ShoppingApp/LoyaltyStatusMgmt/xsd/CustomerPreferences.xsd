@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<xs:schema xmlns:tns="http://customercomms/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://customercomms/">
+
+<xs:element name="customerPreferences" type="tns:customerPreferences"/>
+
+<xs:complexType name="customerPreferences">
+<xs:sequence>
+<xs:element name="acceptMarketingEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptMarketingMail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptMarketingSMS" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptNewsEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptNewsMail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptNewsSMS" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptSalesEmail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptSalesMail" type="xs:string" minOccurs="0"/>
+<xs:element name="acceptSalesSMS" type="xs:string" minOccurs="0"/>
+<xs:element name="customerId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>
