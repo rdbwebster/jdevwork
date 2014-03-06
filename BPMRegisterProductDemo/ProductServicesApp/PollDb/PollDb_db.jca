@@ -1,0 +1,18 @@
+<adapter-config name="PollDb" adapter="Database Adapter" wsdlLocation="PollDb.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/Connection1" UIConnectionName="Connection1" adapterRef=""/>
+  <endpoint-activation portType="PollDb_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="PollDb.Watchtable"/>
+      <property name="QueryName" value="PollDbSelect"/>
+      <property name="MappingsMetaDataURL" value="PollDb-or-mappings.xml"/>
+      <property name="PollingStrategy" value="DeletePollingStrategy"/>
+      <property name="PollingInterval" value="15"/>
+      <property name="MaxRaiseSize" value="1"/>
+      <property name="MaxTransactionSize" value="10"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

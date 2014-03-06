@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/ProductRelease" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ProductRelease"  xmlns:tns2="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb/correlationset"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns3="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:tns5="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService"  xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"  xmlns:tns4="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService/correlationset" >
+    <vprop:propertyAlias propertyName="tns2:productId" part="payload" messageType="tns3:WaitForDbResponseMessage">
+        <vprop:query xmlns:ns="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb">
+            /ns:processResponse/ns:result
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns4:productId" part="payload" messageType="tns5:WaitForDBServiceResponseMessage">
+        <vprop:query xmlns:ns="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService">
+            /ns:processResponse/ns:result
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns4:productId" part="payload" messageType="tns5:WaitForDBServiceRequestMessage">
+        <vprop:query xmlns:cor="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService/correlationset" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+            /client:process/client:input
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias propertyName="tns2:productId" part="payload" messageType="tns3:WaitForDbRequestMessage">
+        <vprop:query xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cor="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb/correlationset" xmlns:tns3="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/ProductRelease" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb" xmlns:tns2="http://xmlns.oracle.com/ProductReleaseApp/ProductRelease/WaitForDb/correlationset" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+            /client:process/client:input
+        </vprop:query>
+    </vprop:propertyAlias>
+</wsdl:definitions>

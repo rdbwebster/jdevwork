@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="SAPProcess">
+        <topicDocumentations>
+            <topicDocumentation name="SAPProcess">
+                <labels>
+                    <label locale="en">SAPProcess</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">SAPProcess</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393248871237">
+                <labels>
+                    <label locale="en">Service Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="RECEIVE_TASK_1393248885393">
+                <labels>
+                    <label locale="en">Receive Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Receive Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="NOTIFICATION_TASK_1393249855104">
+                <labels>
+                    <label locale="en">Notification Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Notification Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9165658123480">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9165658123454">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf1376"/>
+            <topicDocumentation name="sf_1393248871241"/>
+            <topicDocumentation name="sf_1393248885395"/>
+            <topicDocumentation name="sf_1393249855107"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

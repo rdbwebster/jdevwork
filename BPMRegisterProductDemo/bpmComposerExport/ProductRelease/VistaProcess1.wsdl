@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/VistaProcess1" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/VistaProcess1"  xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/VistaProcess1">
+            <xsd:element name="setupNewProduct">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="description" type="xsd:string"/>
+                        <xsd:element name="classification" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="setupNewProduct">
+        <wsdl:part name="parameters" element="tns:setupNewProduct"/>
+    </wsdl:message>
+    <wsdl:portType name="VistaProcess1PortType">
+        <wsdl:operation name="setupNewProduct">
+            <wsdl:input message="tns:setupNewProduct"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <plnk:partnerLinkType name="VistaProcess1PortTypePartnerLinkType">
+        <plnk:role name="VistaProcess1PortTypeProvider">
+            <plnk:portType name="tns:VistaProcess1PortType"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+</wsdl:definitions>

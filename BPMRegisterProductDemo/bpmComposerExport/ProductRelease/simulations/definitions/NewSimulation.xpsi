@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectSimulation xmlns="http://www.bea.com/aqualogic/bpm/simulation" useCalendarRules="false" startTime="1393003327000000" name="NewSimulation" inflightFinish="false" duration="2m">
+    <categoryProbabilities>
+        <categoryProbability value="0.2"/>
+        <categoryProbability value="0.2"/>
+        <categoryProbability value="0.2"/>
+        <categoryProbability value="0.2"/>
+        <categoryProbability value="0.2"/>
+    </categoryProbabilities>
+    <resources>
+        <resource virtual="false" selected="true" name="name1" efficiency="100.0" cost="1.0" capacity="1" availability="100">
+            <roles>
+                <role id="ProcessOwner"/>
+                <role id="ProductManager"/>
+            </roles>
+        </resource>
+        <resource virtual="false" selected="true" name="name2" efficiency="100.0" cost="1.0" capacity="1" availability="100">
+            <roles>
+                <role id="PricingManager"/>
+            </roles>
+        </resource>
+        <resource virtual="false" selected="true" name="name3" efficiency="100.0" cost="1.0" capacity="1" availability="100">
+            <roles>
+                <role id="ChannelMna"/>
+            </roles>
+        </resource>
+    </resources>
+    <modelSimulations>
+        <modelSimulation modelSimulationId="SimulationModel1" modelId="/ProductRelease.xpdl" modelVariation=""/>
+    </modelSimulations>
+</projectSimulation>

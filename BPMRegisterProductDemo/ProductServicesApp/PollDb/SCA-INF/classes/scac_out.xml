@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line>82</line>
+      <col/>
+      <file>WaitForDBService.bpel</file>
+      <name>WaitForDBService.bpel</name>
+      <fix>Make sure that the return value of from-spec query is compatible with the to-spec query</fix>
+      <msg>&lt;from> value type "{http://www.w3.org/2001/XMLSchema}long" is not compatible with &lt;to> value type "{http://www.w3.org/2001/XMLSchema}string"</msg>
+   </Fault>
+</Faults>

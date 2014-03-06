@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="VistaProcess1">
+        <topicDocumentations>
+            <topicDocumentation name="VistaProcess1">
+                <labels>
+                    <label locale="en">VistaProcess</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="RECEIVE_TASK_1393165417876">
+                <labels>
+                    <label locale="en">Receive Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Receive Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9156983938998">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9156983938921">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393265769620">
+                <labels>
+                    <label locale="en">Service Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf71"/>
+            <topicDocumentation name="sf_1393165417883"/>
+            <topicDocumentation name="sf_1393265769623"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

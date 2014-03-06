@@ -1,0 +1,13 @@
+<adapter-config name="prodDbService" adapter="Database Adapter" wsdlLocation="prodDbService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/Connection1" UIConnectionName="Connection1" adapterRef=""/>
+  <endpoint-interaction portType="prodDbService_ptt" operation="prodDbService">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="DEMO"/>
+      <property name="ProcedureName" value="INSERTPRODUCT"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+    <output/>
+  </endpoint-interaction>
+
+</adapter-config>

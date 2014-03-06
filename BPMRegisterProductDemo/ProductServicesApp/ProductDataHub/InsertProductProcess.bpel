@@ -1,0 +1,108 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sat Feb 22 05:57:21 PST 2014
+  Author:  oracle
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="InsertProductProcess"
+               targetNamespace="http://xmlns.oracle.com/ProductServicesApp/productDataHub/InsertProductProcess"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/ProductServicesApp/productDataHub/InsertProductProcess"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/productDataHub/prodDbService"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns2="http://www.sample.com/product"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/prodDbService">
+
+    <import namespace="http://xmlns.oracle.com/ProductServicesApp/productDataHub/InsertProductProcess" location="InsertProductProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="insertproductprocess_client" partnerLinkType="client:InsertProductProcess" myRole="InsertProductProcessProvider"/>
+    <partnerLink name="prodDbService" partnerLinkType="ns1:prodDbService_plt"
+                 partnerRole="prodDbService_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:InsertProductProcessRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:InsertProductProcessResponseMessage"/>
+    <variable name="Invoke1_prodDbService_InputVariable"
+              messageType="ns1:args_in_msg"/>
+    <variable name="Invoke1_prodDbService_OutputVariable"
+              messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in InsertProductProcess.wsdl) -->
+    <receive name="receiveInput" partnerLink="insertproductprocess_client" portType="client:InsertProductProcess" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Assign3">
+      <copy>
+        <from>$inputVariable.payload/ns2:Product/ns2:Description</from>
+        <to>$Invoke1_prodDbService_InputVariable.InputParameters/ns3:PDESCRIPTION</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:Product/ns2:Classification</from>
+        <to>$Invoke1_prodDbService_InputVariable.InputParameters/ns3:PCLASSIFICATION</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:Product/ns2:VISTA</from>
+        <to>$Invoke1_prodDbService_InputVariable.InputParameters/ns3:PVISTA</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:Product/ns2:ECP</from>
+        <to>$Invoke1_prodDbService_InputVariable.InputParameters/ns3:PECP</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:Product/ns2:SAP</from>
+        <to>$Invoke1_prodDbService_InputVariable.InputParameters/ns3:PSAP</to>
+      </copy>
+    </assign>
+    <invoke name="Invoke1"
+            partnerLink="prodDbService" portType="ns1:prodDbService_ptt"
+            operation="prodDbService"
+            inputVariable="Invoke1_prodDbService_InputVariable"
+            outputVariable="Invoke1_prodDbService_OutputVariable"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="Assign2">
+      <copy>
+        <from>$Invoke1_prodDbService_OutputVariable.OutputParameters/ns3:PID</from>
+        <to>$outputVariable.payload/ns2:productId</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="insertproductprocess_client" portType="client:InsertProductProcess" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

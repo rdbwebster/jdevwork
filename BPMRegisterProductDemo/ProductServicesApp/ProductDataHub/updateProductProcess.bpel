@@ -1,0 +1,143 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sat Feb 22 07:09:18 PST 2014
+  Author:  oracle
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="updateProductProcess"
+               targetNamespace="http://xmlns.oracle.com/ProductServicesApp/productDataHub/updateProductProcess"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/ProductServicesApp/productDataHub/updateProductProcess"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/productDataHub/updateProdDbService"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/top/updateProdDbService"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns2="http://www.sample.com/product"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+
+    <import namespace="http://xmlns.oracle.com/ProductServicesApp/productDataHub/updateProductProcess" location="updateProductProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="updateproductprocess_client" partnerLinkType="client:updateProductProcess" myRole="updateProductProcessProvider"/>
+    <partnerLink name="updateProdDbService"
+                 partnerLinkType="ns1:updateProdDbService_plt"
+                 partnerRole="updateProdDbService_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:updateProductProcessRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:updateProductProcessResponseMessage"/>
+    <variable name="Invoke1_update_InputVariable"
+              messageType="ns1:ProductCollection_msg"/>
+    <variable name="Invoke2_selectByPrimaryKey_InputVariable"
+              messageType="ns1:selectByPrimaryKey_inputParameters"/>
+    <variable name="Invoke2_selectByPrimaryKey_OutputVariable"
+              messageType="ns1:ProductCollection_msg"/>
+    <variable name="Invoke2_selectByPrimaryKey_OutputVariable_1"
+              messageType="ns1:ProductCollection_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in updateProductProcess.wsdl) -->
+    <receive name="receiveInput" partnerLink="updateproductprocess_client" portType="client:updateProductProcess" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Assign1">
+      <copy>
+        <from>$inputVariable.payload/ns2:productId</from>
+        <to>$Invoke1_update_InputVariable.ProductCollection/ns3:Product/ns3:productId</to>
+      </copy>
+      <copy ignoreMissingFromData="yes">
+        <from>$inputVariable.payload/ns2:VISTA</from>
+        <to>$Invoke1_update_InputVariable.ProductCollection/ns3:Product/ns3:vista</to>
+      </copy>
+      <copy ignoreMissingFromData="yes">
+        <from>$inputVariable.payload/ns2:ECP</from>
+        <to>$Invoke1_update_InputVariable.ProductCollection/ns3:Product/ns3:ecp</to>
+      </copy>
+      <copy ignoreMissingFromData="yes">
+        <from>$inputVariable.payload/ns2:SAP</from>
+        <to>$Invoke1_update_InputVariable.ProductCollection/ns3:Product/ns3:sap</to>
+      </copy>
+    </assign>
+    <invoke name="Invoke1"
+            partnerLink="updateProdDbService"
+            portType="ns1:updateProdDbService_ptt" operation="update"
+            inputVariable="Invoke1_update_InputVariable"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="Assign3">
+      <copy>
+        <from>$inputVariable.payload/ns2:productId</from>
+        <to>$Invoke2_selectByPrimaryKey_InputVariable.selectByPrimaryKey_inputParameters/ns3:productId</to>
+      </copy>
+    </assign>
+    <invoke name="Invoke2"
+            partnerLink="updateProdDbService"
+            portType="ns1:updateProdDbService_ptt"
+            operation="selectByPrimaryKey"
+            inputVariable="Invoke2_selectByPrimaryKey_InputVariable"
+            outputVariable="Invoke2_selectByPrimaryKey_OutputVariable_1"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="Assign2">
+      <copy>
+        <from>$Invoke2_selectByPrimaryKey_OutputVariable_1.ProductCollection/ns3:Product[1]/ns3:productId</from>
+        <to>$outputVariable.payload/ns2:productId</to>
+      </copy>
+      <copy>
+        <from>$Invoke2_selectByPrimaryKey_OutputVariable_1.ProductCollection/ns3:Product[1]/ns3:vista</from>
+        <to>$outputVariable.payload/ns2:VISTA</to>
+      </copy>
+      <copy>
+        <from>$Invoke2_selectByPrimaryKey_OutputVariable_1.ProductCollection/ns3:Product[1]/ns3:ecp</from>
+        <to>$outputVariable.payload/ns2:ECP</to>
+      </copy>
+      <copy>
+        <from>$Invoke2_selectByPrimaryKey_OutputVariable_1.ProductCollection/ns3:Product[1]/ns3:sap</from>
+        <to>$outputVariable.payload/ns2:SAP</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="updateproductprocess_client" portType="client:updateProductProcess" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

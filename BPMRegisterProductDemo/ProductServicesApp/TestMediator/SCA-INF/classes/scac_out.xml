@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediator1.mplan</file>
+      <name>Mediator1.mplan</name>
+      <fix/>
+      <msg>Case "echo.RegisterProduct" doesnt have any payload transformation Please make sure source and target message part name are same and of same type. Otherwise, target reference may fail to execute with error message like "Input sourcelike Null" or "Part not found"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediator1.mplan</file>
+      <name>Mediator1.mplan</name>
+      <fix/>
+      <msg>Case "echo.UpdateMfgStatus" doesnt have any payload transformation Please make sure source and target message part name are same and of same type. Otherwise, target reference may fail to execute with error message like "Input sourcelike Null" or "Part not found"</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>Mediator1.mplan</file>
+      <name>Mediator1.mplan</name>
+      <fix/>
+      <msg>Case "echo.QueryProductStatus" doesnt have any payload transformation Please make sure source and target message part name are same and of same type. Otherwise, target reference may fail to execute with error message like "Input sourcelike Null" or "Part not found"</msg>
+   </Fault>
+</Faults>

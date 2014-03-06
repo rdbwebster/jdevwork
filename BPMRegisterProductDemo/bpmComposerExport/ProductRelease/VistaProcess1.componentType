@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fuego version="11.1.1.7.0.0.8" build="0.8"?>
+<componentType
+	xmlns:ui="http://xmlns.oracle.com/soa/designer/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns5="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:ns6="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns="http://xmlns.oracle.com/sca/1.0"
+	xmlns:ns4="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+	<service name="VistaProcess1.service"
+		ui:wsdlLocation="VistaProcess1.wsdl">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/bpmn/bpmnProcess/VistaProcess1#wsdl.interface(VistaProcess1PortType)"/>
+		<property name="bpm.generated.service.reference"
+			type="xs:string"
+			many="false">VistaProcess1.service</property>
+	</service>
+	<reference name="Services.Externals.MySyncService.reference"
+		ui:wsdlLocation="http://soabpm-vm:7001//soa-infra/services/default/AsyncBpel/syncbpel_client_ep?WSDL">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/ProductServicesApp/SyncAsyncBpel/SyncBpel#wsdl.interface(SyncBpel)"/>
+	</reference>
+</componentType>

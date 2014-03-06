@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/pollDBService" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/pollDBService" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="WatchtableCollection" type="WatchtableCollection"/>
+   <xs:complexType name="WatchtableCollection">
+      <xs:sequence>
+         <xs:element name="Watchtable" type="Watchtable" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Watchtable">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="description" minOccurs="0" nillable="true">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="80"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="empty" type="empty"/>
+   <xs:complexType name="empty">
+      <xs:sequence/>
+   </xs:complexType>
+</xs:schema>

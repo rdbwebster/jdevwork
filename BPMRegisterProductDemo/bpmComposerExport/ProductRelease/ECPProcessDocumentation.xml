@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="ECPProcess">
+        <topicDocumentations>
+            <topicDocumentation name="ECPProcess">
+                <labels>
+                    <label locale="en">ECPProcess</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393166585051">
+                <labels>
+                    <label locale="en">Service Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="RECEIVE_TASK_1393166598120">
+                <labels>
+                    <label locale="en">Receive Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Receive Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SCRIPT_TASK_1393167087260">
+                <labels>
+                    <label locale="en">Script Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Script Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9157429828469">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT915742982847">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf130"/>
+            <topicDocumentation name="sf_1393166585052"/>
+            <topicDocumentation name="sf_1393166598121"/>
+            <topicDocumentation name="sf_1393167087262"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

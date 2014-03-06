@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.frevvo.com/schemas/_2LKRAJs1EeOY6sRZy0karQ"
+            xmlns:frevvo="http://www.frevvo.com/appinfo"
+            targetNamespace="http://www.frevvo.com/schemas/_2LKRAJs1EeOY6sRZy0karQ">
+   <xsd:element name="EnterNewProductForm" type="EnterNewProductFormType">
+      <xsd:annotation>
+         <xsd:appinfo>
+            <frevvo:displaytype/>
+         </xsd:appinfo>
+      </xsd:annotation>
+   </xsd:element>
+   <xsd:complexType name="EnterNewProductFormType">
+      <xsd:sequence>
+         <xsd:element minOccurs="0" name="ProductClassification" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>Product Classification</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="ProductDescription" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>TextArea</frevvo:displaytype>
+                  <frevvo:label>Product Description</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element name="ERPSelection" type="ERPSelectionType">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Section</frevvo:displaytype>
+                  <frevvo:label>ERP Selection</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="ERPSelectionType">
+      <xsd:sequence>
+         <xsd:element minOccurs="0" name="VistaERPSetup" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>Vista ERP Setup</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element minOccurs="0" name="ECPERPSetup" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>ECP ERP Setup</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element minOccurs="0" name="SAPERPSetup" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>SAP ERP Setup</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

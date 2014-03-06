@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="EBSProcess">
+        <topicDocumentations>
+            <topicDocumentation name="EBSProcess">
+                <labels>
+                    <label locale="en">EBSProcess</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="RECEIVE_TASK_1393266110213">
+                <labels>
+                    <label locale="en">Receive Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Receive Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393266231169">
+                <labels>
+                    <label locale="en">Service Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9167381529764">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9167381529789">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf1850"/>
+            <topicDocumentation name="sf_1393266110214"/>
+            <topicDocumentation name="sf_1393266231170"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

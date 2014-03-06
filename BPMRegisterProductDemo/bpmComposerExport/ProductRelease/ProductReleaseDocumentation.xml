@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.7.0.0.8" fileRevision="20120217"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="ProductRelease">
+        <topicDocumentations>
+            <topicDocumentation name="ProductRelease">
+                <labels>
+                    <label locale="en">ProductRelease</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1392994469930">
+                <labels>
+                    <label locale="en">RegisterProduct</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">RegisterProduct</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="USER_TASK_1393187515763">
+                <labels>
+                    <label locale="en">Initiator</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Initiator</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393266475521">
+                <labels>
+                    <label locale="en">Call EBS workflow</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Call EBS workflow</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SUBPROCESS_1393267124179">
+                <labels>
+                    <label locale="en">VISTA Setup</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393267140582">
+                <labels>
+                    <label locale="en">Service Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT_1393267124180">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT_1393267124181">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EXCLUSIVE_GATEWAY_1393267553063">
+                <labels>
+                    <label locale="en">Exclusive Gateway</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Exclusive Gateway</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf_1393267124183"/>
+            <topicDocumentation name="sf_1393267140584"/>
+            <topicDocumentation name="sf_1393267553064"/>
+            <topicDocumentation name="sf_1393267562047">
+                <labels>
+                    <label locale="en">skipConfig</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SUBPROCESS_1393267284548">
+                <labels>
+                    <label locale="en">ECP Setup</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393267300374">
+                <labels>
+                    <label locale="en">Service Task1</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task1</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="USER_TASK_1393272289780">
+                <labels>
+                    <label locale="en">User Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">User Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="NOTIFICATION_TASK_1393272428855">
+                <labels>
+                    <label locale="en">Notification Task</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Notification Task</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT_1393267284550">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT_1393267284551">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EXCLUSIVE_GATEWAY_1393273025066">
+                <labels>
+                    <label locale="en">Exclusive Gateway2</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf_1393267284552"/>
+            <topicDocumentation name="sf_1393267300376"/>
+            <topicDocumentation name="sf_1393272289782"/>
+            <topicDocumentation name="sf_1393272428856"/>
+            <topicDocumentation name="sf_1393273025067"/>
+            <topicDocumentation name="sf_1393273042837">
+                <labels>
+                    <label locale="en">skipConfig</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SUBPROCESS_1393267436418">
+                <labels>
+                    <label locale="en">SAP Setup</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="SERVICE_TASK_1393267472053">
+                <labels>
+                    <label locale="en">Service Task2</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Service Task2</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="USER_TASK_1393268722336">
+                <labels>
+                    <label locale="en">SetupRequest</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">SetupRequest</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT_1393267436420">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT_1393267436421">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EXCLUSIVE_GATEWAY_1393272805379">
+                <labels>
+                    <label locale="en">Exclusive Gateway1</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf_1393267436422"/>
+            <topicDocumentation name="sf_1393267472055"/>
+            <topicDocumentation name="sf_1393268722338"/>
+            <topicDocumentation name="sf_1393272805380"/>
+            <topicDocumentation name="sf_1393272849635">
+                <labels>
+                    <label locale="en">SkipSAPSetup</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9140194341491">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9140194341526">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="PARALLEL_GATEWAY_1393000547049">
+                <labels>
+                    <label locale="en">Parallel Gateway1</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="PARALLEL_GATEWAY_1393000547049M">
+                <labels>
+                    <label locale="en">Parallel Gateway1Merge</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="EVT9175212507549">
+                <labels>
+                    <label locale="en">WaitForDb</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="EVT917521729195">
+                <labels>
+                    <label locale="en">DBReady</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf4"/>
+            <topicDocumentation name="sf_1393000547054"/>
+            <topicDocumentation name="sf_1393001487035"/>
+            <topicDocumentation name="sf_1393166129565"/>
+            <topicDocumentation name="sf_1393187515766"/>
+            <topicDocumentation name="sf_1393266495934"/>
+            <topicDocumentation name="sf_1393266539933"/>
+            <topicDocumentation name="sf_1393267241430"/>
+            <topicDocumentation name="sf_1393267245580"/>
+            <topicDocumentation name="sf_1393267376640"/>
+            <topicDocumentation name="sf_1393267380533"/>
+            <topicDocumentation name="sf_1393267445978"/>
+            <topicDocumentation name="sf_1393267453113"/>
+            <topicDocumentation name="sf377"/>
+            <topicDocumentation name="sf378"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

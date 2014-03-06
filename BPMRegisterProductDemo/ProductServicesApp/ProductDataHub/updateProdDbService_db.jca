@@ -1,0 +1,23 @@
+<adapter-config name="updateProdDbService" adapter="Database Adapter" wsdlLocation="updateProdDbService.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/Connection1" UIConnectionName="Connection1" adapterRef=""/>
+  <endpoint-interaction portType="updateProdDbService_ptt" operation="update">
+    <interaction-spec className="oracle.tip.adapter.db.DBWriteInteractionSpec">
+      <property name="DescriptorName" value="updateProdDbService.Product"/>
+      <property name="DmlType" value="update"/>
+      <property name="MappingsMetaDataURL" value="updateProdDbService-or-mappings.xml"/>
+      <property name="DetectOmissions" value="true"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+  <endpoint-interaction portType="updateProdDbService_ptt" operation="selectByPrimaryKey">
+    <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+      <property name="DescriptorName" value="updateProdDbService.Product"/>
+      <property name="QueryName" value="readObject"/>
+      <property name="MappingsMetaDataURL" value="updateProdDbService-or-mappings.xml"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

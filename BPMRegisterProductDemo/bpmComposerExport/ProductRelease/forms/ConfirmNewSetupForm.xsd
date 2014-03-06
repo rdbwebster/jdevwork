@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.frevvo.com/schemas/_D0qaIJ2HEeOf1s2krKO8vA"
+            xmlns:frevvo="http://www.frevvo.com/appinfo"
+            targetNamespace="http://www.frevvo.com/schemas/_D0qaIJ2HEeOf1s2krKO8vA">
+   <xsd:element name="ConfirmNewSetupForm" type="ConfirmNewSetupFormType">
+      <xsd:annotation>
+         <xsd:appinfo>
+            <frevvo:displaytype/>
+         </xsd:appinfo>
+      </xsd:annotation>
+   </xsd:element>
+   <xsd:complexType name="ConfirmNewSetupFormType">
+      <xsd:sequence>
+         <xsd:element minOccurs="0" name="NewProductId" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>New Product Id</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element minOccurs="0" name="Description" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>TextArea</frevvo:displaytype>
+                  <frevvo:label>Description</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element minOccurs="0" name="Classification" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>Text</frevvo:displaytype>
+                  <frevvo:label>Classification</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+         <xsd:element minOccurs="0" name="SetupComments" type="xsd:string">
+            <xsd:annotation>
+               <xsd:appinfo>
+                  <frevvo:displaytype>TextArea</frevvo:displaytype>
+                  <frevvo:label>Setup Comments</frevvo:label>
+               </xsd:appinfo>
+            </xsd:annotation>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:schema>

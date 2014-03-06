@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="AsyncBpelProcess" targetNamespace="http://xmlns.oracle.com/ProductServicesApp/AsyncBpel/AsyncBpelProcess" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:client="http://xmlns.oracle.com/ProductServicesApp/AsyncBpel/AsyncBpelProcess" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:ns1="http://www.example.org" xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20" xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc" xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath" xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath" xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions" xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk" xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions" xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" id="BpPrc0">
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="asyncbpelprocess_client" partnerLinkType="client:AsyncBpelProcess" myRole="AsyncBpelProcessProvider" partnerRole="AsyncBpelProcessRequester"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:AsyncBpelProcessRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:AsyncBpelProcessResponseMessage"/>
+    </variables>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main" id="BpSeq0">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in AsyncBpelProcess.wsdl) -->
+        <receive name="receiveInput" partnerLink="asyncbpelprocess_client" portType="client:AsyncBpelProcess" operation="process" variable="inputVariable" createInstance="yes" id="BpRcv0"/>
+        <assign name="Assign1" id="BpAss0">
+            <copy>
+                <from variable="inputVariable" part="payload" query="/ns1:NewProduct/ns1:ProductId"/>
+                <to variable="outputVariable" part="payload" query="/ns1:NewProduct/ns1:ProductId"/>
+            </copy>
+            <copy>
+                <from variable="inputVariable" part="payload" query="/ns1:NewProduct/ns1:Description"/>
+                <to variable="outputVariable" part="payload" query="/ns1:NewProduct/ns1:Description"/>
+            </copy>
+            <copy>
+                <from variable="inputVariable" part="payload" query="/ns1:NewProduct/ns1:Classification"/>
+                <to variable="outputVariable" part="payload" query="/ns1:NewProduct/ns1:Classification"/>
+            </copy>
+            <copy>
+                <from expression="&quot;SETUP_COMPLETED&quot;"/>
+                <to variable="outputVariable" part="payload" query="/ns1:NewProduct/ns1:Status"/>
+            </copy>
+        </assign>
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <invoke name="callbackClient" partnerLink="asyncbpelprocess_client" portType="client:AsyncBpelProcessCallback" operation="processResponse" inputVariable="outputVariable" id="BpInv0"/>
+    </sequence>
+</process><!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Feb 24 08:59:35 PST 2014
+  Author:  oracle
+  Type: BPEL 1.1 Process
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->

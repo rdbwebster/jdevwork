@@ -1,0 +1,28 @@
+<?binding.jca updateProdDbService_db.jca?>
+<wsdl:definitions name="updateProdDbService" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/productDataHub/updateProdDbService" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/productDataHub/updateProdDbService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/updateProdDbService">
+    <plt:partnerLinkType name="updateProdDbService_plt">
+        <plt:role name="updateProdDbService_role">
+            <plt:portType name="tns:updateProdDbService_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/updateProdDbService" schemaLocation="xsd/updateProdDbService_table.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="ProductCollection_msg">
+        <wsdl:part name="ProductCollection" element="top:ProductCollection"/>
+    </wsdl:message>
+    <wsdl:message name="selectByPrimaryKey_inputParameters">
+        <wsdl:part name="selectByPrimaryKey_inputParameters" element="top:ProductPrimaryKey"/>
+    </wsdl:message>
+    <wsdl:portType name="updateProdDbService_ptt">
+        <wsdl:operation name="update">
+            <wsdl:input message="tns:ProductCollection_msg"/>
+        </wsdl:operation>
+        <wsdl:operation name="selectByPrimaryKey">
+            <wsdl:input message="tns:selectByPrimaryKey_inputParameters"/>
+            <wsdl:output message="tns:ProductCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

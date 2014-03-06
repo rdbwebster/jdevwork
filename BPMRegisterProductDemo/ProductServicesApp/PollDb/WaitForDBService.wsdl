@@ -1,0 +1,48 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WaitForDBService"
+     targetNamespace="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:cor="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService/correlationset"
+     xmlns:client="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+    >
+    <plnk:partnerLinkType name="WaitForDBService">
+        <plnk:role name="WaitForDBServiceProvider">
+            <plnk:portType name="client:WaitForDBService"/>
+        </plnk:role>
+        <plnk:role name="WaitForDBServiceRequester">
+            <plnk:portType name="client:WaitForDBServiceCallback"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <bpws:propertyAlias propertyName="cor:productId" messageType="client:WaitForDBServiceRequestMessage"
+         part="payload" query="/client:process/client:input"/>
+    <bpws:propertyAlias propertyName="cor:productId" xmlns:ns13="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/PollDb/PollDb"
+         messageType="ns13:WatchtableCollection_msg" part="WatchtableCollection" query="/ns1:WatchtableCollection/ns1:Watchtable[1]/ns1:id"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/top/PollDb"/>
+    <wsdl:import namespace="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService/correlationset"
+         location="WaitForDBService_Properties.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService"
+                 schemaLocation="xsd/WaitForDBService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="WaitForDBServiceRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="WaitForDBServiceResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="WaitForDBService">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:WaitForDBServiceRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="WaitForDBServiceCallback">
+        <wsdl:operation name="processResponse">
+            <wsdl:input message="client:WaitForDBServiceResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fuego version="11.1.1.7.0.0.8" build="0.8"?>
+<componentType
+	xmlns:ui="http://xmlns.oracle.com/soa/designer/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:ns5="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:ns6="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns="http://xmlns.oracle.com/sca/1.0"
+	xmlns:ns4="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
+	xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+ <reference name="Services.Externals.PDHService.reference"
+		ui:wsdlLocation="http://soabpm-vm:7001//soa-infra/services/default/ebs/Mediator1_ep?WSDL">
+		<interface.wsdl
+			interface="http://www.sample.com/product#wsdl.interface(Product_Service)"/>
+	</reference>
+	<reference name="HumanTasks.HumanTask.reference"
+		ui:wsdlLocation="oramds:/soa/shared/workflow/TaskServiceInterface.wsdl">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)"
+			callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+	</reference>
+	<reference name="Services.Externals.MySyncService.reference"
+		ui:wsdlLocation="http://soabpm-vm:7001//soa-infra/services/default/AsyncBpel/syncbpel_client_ep?WSDL">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/ProductServicesApp/SyncAsyncBpel/SyncBpel#wsdl.interface(SyncBpel)"/>
+	</reference>
+	<reference name="HumanTasks.SetupRequest.reference"
+		ui:wsdlLocation="oramds:/soa/shared/workflow/TaskServiceInterface.wsdl">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)"
+			callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+	</reference>
+	<reference name="NotificationService.NOTIFICATION_TASK_1393272428855"
+		ui:wsdlLocation="oramds:/soa/shared/workflow/NotificationService.wsdl">
+		<interface.wsdl
+			interface="http://xmlns.oracle.com/ias/pcbpel/NotificationService#wsdl.interface(NotificationService)"/>
+	</reference>
+ <reference name="Services.Externals.PollDb.reference"
+            ui:wsdlLocation="http://soabpm-vm.site:7001/soa-infra/services/default/PollDb/WaitForDBService.wsdl">
+  <interface.wsdl interface="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService#wsdl.interface(WaitForDBService)"/>
+ </reference>
+ <reference name="Services.Externals.PollDbCallback.reference"
+            ui:wsdlLocation="http://soabpm-vm.site:7001/soa-infra/services/default/PollDb/WaitForDBService.wsdl">
+  <interface.wsdl interface="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService#wsdl.interface(WaitForDBService)"
+                  callbackInterface="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService#wsdl.interface(WaitForDBServiceCallback)"/>
+ </reference>
+</componentType>

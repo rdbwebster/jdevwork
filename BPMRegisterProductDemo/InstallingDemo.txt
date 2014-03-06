@@ -1,0 +1,62 @@
+Installing BPM Custom Demo
+
+Consists of
+
+- A BPM Composer Project
+- A JDeveloper App 
+
+BPM Composer
+------------
+1) These files must be managed using git on the command line.
+   To checkin - export project from bpmcomposwer to zip file.
+   Explode zip into BPMComposerExport folder
+   and checkin
+   For checkout the files must be zipped into a file with a .exp extension
+   and imported the zip into BPMComposer using the browser.
+2) Confirm the project is visible and valid in BPM Composer
+
+JDeveloper Project 
+------------------
+ProductServicesApp - contains
+  PollDb SCA 
+  (bpel proc that Polls watchtable for inserted records)
+  
+  ProductDataHub SCA
+  (mediator and bpel project that provide web services that mimic the idea of roduct Data Hub)
+  
+  SyncAsyncBpel
+  (Bpel projects used to mimic ebs)
+
+
+
+1) In ProductDataHub project run scripts in sql folder to 
+   - create demo user
+   - create demo tables and sequence for primary key on insert
+   - create stored procedure to insert seqence and return new key value
+
+2) Create demo db resources and configure DB Adapter for PollDB
+   - Create XA Datasource named:      demoDataSource
+                          jndi name:  jdbc/demoDataSource
+               Target to Admin Server
+   - Configure DB Adapter outbound connection pools,
+     OutboundConnectionPool: eis/DB/Connection1
+     Set XADataSourceName to   jdbc/demoDataSource
+     Save all and must stop and restart db adapter.
+     
+2) In PollDB project run sql script using sqlplus to create watchtable.
+   Deploy PollDb project to app server
+   
+3) Deploy productDataHub to app server
+
+4) Deploy SyncAsyncBpel to app Server
+
+5) Configure UMS Server
+
+6) If you want to view / edit the composer project in Jdeveloper
+   (minus the ability to edit the webforms)
+   Create a new SOA App in Jdev named
+   ProductRelease
+   Then open the to BPM MDS Navigator (view)
+   And right click and choose Checkout
+   
+   

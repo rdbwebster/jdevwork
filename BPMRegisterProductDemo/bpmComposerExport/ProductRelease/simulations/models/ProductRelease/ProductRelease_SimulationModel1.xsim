@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<modelSimulation xmlns="http://www.bea.com/aqualogic/bpm/simulation" useMaxInstances="false" processPath="/ProductRelease.xpdl" processId="ProductRelease" processVariation="" name="SimulationModel1" maxInstances="100">
+    <activities>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="RECEIVE_TASK_1393001493553" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SERVICE_TASK_1392994469930" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="USER_TASK_1392994651702" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="PARALLEL_GATEWAY_1393000547049M" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SEND_TASK_1393001483782" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="EVT9140194341526" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="RECEIVE_TASK_1393000610337" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SERVICE_TASK_1392994872003" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="2" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="USER_TASK_1392994739767" innerSimulation="false" exceptionProbability="0.0" cost="0.04" capacity="2" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="USER_TASK_1392995235821" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="USER_TASK_1392994698024" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SERVICE_TASK_1392994789993" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="PARALLEL_GATEWAY_1393000547049" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="USER_TASK_1392994426016" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SEND_TASK_1393000555361" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="PARALLEL_GATEWAY_1392994613068M" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="PARALLEL_GATEWAY_1392994613068" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="SERVICE_TASK_1392995260274" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="100" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+        <activity useOrgResources="true" queueWarningLevel="1" queuePolicy="FIFO" participantSelectionPolicy="MINIMUM_COST" name="EVT9140194341491" innerSimulation="false" exceptionProbability="0.0" cost="0.0" capacity="1" activityCostType="FIXED_BASE_COST" abortProbability="0.0">
+            <distribution>
+                <normalDistribution mean="30000000" deviation="3000000"/>
+            </distribution>
+        </activity>
+    </activities>
+    <transitions>
+        <transition name="sf_1392994793716" probability="1.0"/>
+        <transition name="sf_1392994872004" probability="1.0"/>
+        <transition name="sf_1393000610339" probability="1.0"/>
+        <transition name="sf4" probability="1.0"/>
+        <transition name="sf_1393001495895" probability="1.0"/>
+        <transition name="sf_1392994469931" probability="1.0"/>
+        <transition name="sf_1392995235822" probability="1.0"/>
+        <transition name="sf_1392994807441" probability="1.0"/>
+        <transition name="sf_1392994613072" probability="1.0"/>
+        <transition name="sf_1392994613071" probability="1.0"/>
+        <transition name="sf_1392994651704" probability="1.0"/>
+        <transition name="sf_1393000555363" probability="1.0"/>
+        <transition name="sf_1393000547054" probability="1.0"/>
+        <transition name="sf_1392995260275" probability="1.0"/>
+        <transition name="sf_1392994767629" probability="1.0"/>
+        <transition name="sf_1393000547052" probability="1.0"/>
+        <transition name="sf_1392994426020" probability="1.0"/>
+        <transition name="sf_1393001487035" probability="1.0"/>
+        <transition name="sf_1393001498108" probability="1.0"/>
+    </transitions>
+    <distribution>
+        <normalDistribution mean="30000000" deviation="3000000"/>
+    </distribution>
+</modelSimulation>

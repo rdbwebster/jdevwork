@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="WaitForDBService" targetNamespace="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:client="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/ProductServicesApp/PollDb/PollDb" xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns2="http://xmlns.oracle.com/ProductServicesApp/PollDb/WaitForDBService/correlationset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/top/PollDb" id="BpPrc0">
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="waitfordbservice_client" partnerLinkType="client:WaitForDBService" myRole="WaitForDBServiceProvider" partnerRole="WaitForDBServiceRequester"/>
+        <partnerLink name="PollDb" partnerLinkType="ns1:PollDb_plt" myRole="PollDb_role"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:WaitForDBServiceRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:WaitForDBServiceResponseMessage"/>
+        <variable name="Receive1_receive_InputVariable" messageType="ns1:WatchtableCollection_msg"/>
+    </variables>
+    <correlationSets>
+        <correlationSet name="Correlation_Set1" properties="ns2:productId"/>
+    </correlationSets>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main" id="BpSeq0">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in WaitForDBService.wsdl) -->
+        <receive name="receiveInput" partnerLink="waitfordbservice_client" portType="client:WaitForDBService" operation="process" variable="inputVariable" createInstance="yes" id="BpRcv0">
+            <correlations>
+                <correlation set="Correlation_Set1" initiate="yes"/>
+            </correlations>
+        </receive>
+        <receive name="Receive1" createInstance="no" variable="Receive1_receive_InputVariable" partnerLink="PollDb" portType="ns1:PollDb_ptt" operation="receive" id="BpRcv1">
+            <correlations>
+                <correlation set="Correlation_Set1" initiate="no"/>
+            </correlations>
+        </receive>
+        <assign name="Assign1" id="BpAss0">
+            <copy>
+                <from variable="Receive1_receive_InputVariable" part="WatchtableCollection" query="/ns3:WatchtableCollection/ns3:Watchtable/ns3:id"/>
+                <to variable="outputVariable" part="payload" query="/client:processResponse/client:result"/>
+            </copy>
+        </assign>
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <invoke name="callbackClient" partnerLink="waitfordbservice_client" portType="client:WaitForDBServiceCallback" operation="processResponse" inputVariable="outputVariable" id="BpInv0"/>
+    </sequence>
+</process><!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Feb 25 07:40:18 PST 2014
+  Author:  oracle
+  Type: BPEL 1.1 Process
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->

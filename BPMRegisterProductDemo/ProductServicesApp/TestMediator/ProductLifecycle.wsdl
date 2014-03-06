@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+     name="Sales_Service"
+     targetNamespace="http://www.sample.com/product"
+     xmlns:tns="http://www.sample.com/product"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://www.sample.com/product" elementFormDefault="qualified">
+            <xsd:complexType name="Product">
+                <xsd:sequence>
+                    <xsd:element name="Description" type="xsd:string"/>
+                    <xsd:element name="Classification" type="xsd:string"/>
+                    <xsd:element name="VISTA" type="xsd:string"/>
+                    <xsd:element name="ECP" type="xsd:string"/>
+                    <xsd:element name="SAP" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="RegisterProduct">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Product" type="tns:Product"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="RegisterProductResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateProduct">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="VISTA" type="xsd:string"/>
+                        <xsd:element name="ECP" type="xsd:string"/>
+                        <xsd:element name="SAP" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="UpdateProductResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="VISTA" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ECP" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="SAP" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="QueryProduct">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="QueryProductResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productId" type="xsd:string"/>
+                        <xsd:element name="VISTA" type="xsd:string"/>
+                        <xsd:element name="ECP" type="xsd:string"/>
+                        <xsd:element name="SAP" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="RegisterProductMsg">
+        <wsdl:part name="payload" element="tns:RegisterProduct"/>
+    </wsdl:message>
+    <wsdl:message name="RegisterProductResponseMsg">
+        <wsdl:part name="payload" element="tns:RegisterProductResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateProductMsg">
+        <wsdl:part name="payload" element="tns:UpdateProduct"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateProductResponseMsg">
+        <wsdl:part name="payload" element="tns:UpdateProductResponse"/>
+    </wsdl:message>
+    <wsdl:message name="QueryProductMsg">
+        <wsdl:part name="payload" element="tns:QueryProduct"/>
+    </wsdl:message>
+    <wsdl:message name="QueryProductResponseMsg">
+        <wsdl:part name="payload" element="tns:QueryProductResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="Product_Service">
+        <wsdl:operation name="RegisterProduct">
+            <wsdl:input message="tns:RegisterProductMsg"/>
+            <wsdl:output message="tns:RegisterProductResponseMsg"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateMfgStatus">
+            <wsdl:input message="tns:UpdateProductMsg"/>
+            <wsdl:output message="tns:UpdateProductResponseMsg"/>
+        </wsdl:operation>
+        <wsdl:operation name="QueryProductStatus">
+            <wsdl:input message="tns:QueryProductMsg"/>
+            <wsdl:output message="tns:QueryProductResponseMsg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ProductServiceBinding" type="tns:Product_Service">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="RegisterProduct">
+            <soap:operation style="document" soapAction="urn:register"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateMfgStatus">
+            <soap:operation style="document" soapAction="urn:update"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="QueryProductStatus">
+            <soap:operation style="document" soapAction="urn:sales-service"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.sample.com/product"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Product_Service">
+        <wsdl:port name="Sales_ServicePort" binding="tns:ProductServiceBinding">
+            <soap:address location="http://localhost:8080/soap/servlet/rpcrouter"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

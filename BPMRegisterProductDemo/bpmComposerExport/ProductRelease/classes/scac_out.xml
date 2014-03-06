@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>HumanTask.task</file>
+      <name>HumanTask.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>SetupRequest.task</file>
+      <name>SetupRequest.task</name>
+      <fix/>
+      <msg>Error assignee not specified</msg>
+   </Fault>
+</Faults>
