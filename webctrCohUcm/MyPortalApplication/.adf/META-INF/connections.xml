@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="UCM" className="oracle.vcr.jam.JamRepository" xmlns="">
+      <Factory className="oracle.vcr.jam.JamRepositoryFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="oracle.vcr.jam.factoryClassName">
+            <Contents>oracle.jcr.OracleRepositoryFactory</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.vcr.jam.repositoryClassName">
+            <Contents>javax.jcr.Repository</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.vcr.jam.repositoryTypeID">
+            <Contents>oracle.stellent.jcr</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.vcr.jam.authenticationMethod">
+            <Contents>IDENTITY_PROPAGATION</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.jcr.framework.version">
+            <Contents>11.1.0.0.0</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.jcr.configuration.className">
+            <Contents>oracle.stellent.jcr.IdcRepositoryConfiguration</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.jcr.configuration.factoryClassName">
+            <Contents>oracle.stellent.jcr.IdcRepositoryConfigurationFactory</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jcr.repository.version">
+            <Contents>10.1.3.2.0</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.stellent.jcr.configuration.cis.config.socket.type">
+            <Contents>socket</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.stellent.jcr.configuration.server.host">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oracle.stellent.jcr.configuration.server.port">
+            <Contents>4444</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.96" id="homePageDef"
+                Package="oracle.webcenter.portalapp.pages">
+  <parameters>
+    <parameter id="page_info"
+               value="title=Home;desc=;keywords=;createdBy=weblogic;createDate=2010-06-08T10:12:28;lastUpdatedBy=weblogic;lastUpdateDate=2010-06-08T16:07:52;permissionClass=oracle.webcenter.security.auth.HierarchicalResourcePermission;target=serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/home.jspx;excluded=false;style="/>
+    <parameter id="page_title" value="Home"/>
+    <parameter id="page_parent"
+               value="/oracle/webcenter/portalapp/pagehierarchy/pages.xml"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <page viewId="${preferenceBean.defaultPageTemplate}"
+          id="pageTemplateBinding" Refresh="ifNeeded"/>
+    <taskFlow id="pageeditorpanel"
+              taskFlowId="#{pageEditorBean.pageEditorPanel}"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="doclibcontentpresenter1"
+              taskFlowId="/oracle/webcenter/doclib/view/jsf/taskflows/presenter/contentPresenter.xml#doclib-content-presenter"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="datasourceType" value="${'dsTypeSingleNode'}"/>
+        <parameter id="taskFlowInstId"
+                   value="${'0c525df5-8c63-427d-ba26-f2ec19c2a54d'}"/>
+        <parameter id="templateView" value="${''}"/>
+        <parameter id="templateCategory" value="${''}"/>
+        <parameter id="maxResults" value="${''}"/>
+        <parameter id="datasource"
+                   value="${'UCM#dDocName:LOCALHOST16200000010'}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="doclibcontentpresenter2"
+              taskFlowId="/oracle/webcenter/doclib/view/jsf/taskflows/presenter/contentPresenter.xml#doclib-content-presenter"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="datasourceType" value="${'dsTypeSingleNode'}"/>
+        <parameter id="taskFlowInstId"
+                   value="${'7c92dfe2-28e3-469d-b6a7-6063b88c1ed1'}"/>
+        <parameter id="templateView" value="${''}"/>
+        <parameter id="templateCategory" value="${''}"/>
+        <parameter id="maxResults" value="${''}"/>
+        <parameter id="datasource"
+                   value="${'UCM#dDocName:LOCALHOST16200000010'}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+  <permission permissionClass="oracle.webcenter.security.auth.HierarchicalResourcePermission"
+              target="serviceID=oracle.webcenter.page,scopeID=s8bba98ff_4cbb_40b8_beee_296c916a23ed,resourceID=/oracle/webcenter/portalapp/pages/home.jspx"
+              xmlns="http://xmlns.oracle.com/adf/security">
+    <privilege-map operation="create" privilege="create"/>
+    <privilege-map operation="delete" privilege="delete"/>
+    <privilege-map operation="edit" privilege="update"/>
+    <privilege-map operation="personalize" privilege="personalize"/>
+    <privilege-map operation="view" privilege="view"/>
+  </permission>
+</pageDefinition>

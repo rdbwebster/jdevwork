@@ -1,0 +1,241 @@
+
+Questions from Customer Eaton:
+---------------------------------------------------------------------------------------
+1) They cannot tell if Coherence is even being used for caching.
+   Answer See Below. coherence Logging or coherence mbeans
+ 
+2) Should they change cache config to use distributed instead of local for cluster.
+   Answer - yes see support note below 1503040.1 
+
+3) How can they get cache stats?  
+   Answer See Below, a different set of mbeans. (Not in the Portal App as described in several articles)
+
+4) Should they set the ttl to zero or more.
+   Answer see support note regarding setting to zero in coherence and setting timeout in ucm interface.
+   http://www.ateam-oracle.com/optimizing-content-cache-performance-in-webcenter-portal/
+
+5) Can they externalize coherence so they dont lose the caches if they bounce the portal servers.
+
+
+
+For question 1
+--------------
+I created a Portal App that accesses UCS by following this tutorial
+http://docs.oracle.com/cd/E28280_01/webcenter.1111/e10273/toc.htm
+
+Got the sample at ORACLE_HOME/webcenter/modules/oracle.webcenter.content.integration_11.1.1/content-app-lib.ear.
+The sample file location is: /content-app-lib.ear/APP-INF/classes/sample-content-coherence-cache-config.xml file.
+
+I configured APP-INF/lib with a jar containing coherence config as per this article.
+http://www.ateam-oracle.com/configure-coherence-for-oracle-webcenter-portal-framework-content-presenter-task-flow/
+
+
+
+My App deployed and worked getting some content from UMS.
+And I did not get a message in the log stating
+"Unable to load Coherence configuration file content-coherence-cache-config.xml. Using in-memory (local) caches.
+So i am to believe the Web is using coherence rather than its own cache impl.
+BUT I could not find CacheConfig MBean as describe in article using the
+WLS MBean Browser and looking at custom JMX App beans for my app.
+And I could not find a Coherence MBean using JConsole.
+I could find one for WLS instance containing OSB but only that one.
+
+
+So I decided to decompile relevant code.
+Figured out that
+
+oracle.wcps.cache.CacheFactory is the class in question and it is located in
+NOTE Implemtation based on this abstract class CacheFactory class
+http://docs.oracle.com/cd/E23943_01/apirefs.1111/e15995/oracle/wcps/cache/CacheFactory.html
+
+$fmwhome/Oracle_WC1/webcenter/modules/wcps-util_11.1.1/cache-1.0.jar
+$fmwhome/Oracle_WC1/webcenter/modules/wcps-util_11.1.1/wcps-util-app-lib.ear
+$fmwhome/Oracle_WC1/webcenter/modules/wcps-services_11.1.1.4.0/rest-client-server-1.0.0.0.jar
+$fmwhome/Oracle_WC1/webcenter/modules/wcps-services_11.1.1.4.0/cache-1.0.jar
+
+Note: the wcps-util-app-lib.ear library is deployed already to AdminServer and WC_Spaces
+as seen in WLS console->deployments.
+I also see MyPortalApplication_application1 as referencing it.
+So I know the CoherenceCacheFactory class is available in the runtime
+
+See Checked in project WCPS-UtilApp
+I contains a few classes from cache-1.0.jar with my own debug.
+I added this jar to the APP-INF/LIB and set prefer-local-classes in weblogic-application.xml
+
+Now when I deploy and hit the page I can see that Coherence is being used.
+The oracle creates their own Factory with a name 'product'
+based on the prefix of passed in config file
+content-coherence-cache-config.xml
+
+I also figured out that Coherence itself will register MBeans with WLS if it is running.
+This is the fastest way to determine if its running and at what WKA etc.
+
+Goto EM and expand Weblogic Domain->domainName
+Right click on domainName and choose 
+System MBean Browser.
+
+If coherence is running on AdminServer and WC_Spaces  you will see under
+
+System MBean Browser
+"Application Defined MBeans"
+    Coherence
+        - Server: AdminServer
+	- Server: WC_Spaces
+		- Cluster
+		- Managment
+		- Node
+                        -     Click on the bean icon and in the right pane you will see attributes
+                              of the bean, click on the attribute name to get its value.
+                               Under this node can get the values like
+                             - Multicast Address and Port
+                             - Well known address and port
+		- Platform
+
+I have not expanded all nodes above.
+But You can get most everthing here including jvm settings etc.
+
+
+ALSO As describe in support article below you can see coherence logging if you change setting
+to not be using JDK 
+
+Here are the settings I used 
+
+EXTRA_JAVA_PROPERTIES="${EXTRA_JAVA_PROPERTIES} -Dsoa.archives.dir=${SOA_ORACLE_HOME}/soa
+ -Dsoa.oracle.home=${SOA_ORACLE_HOME} -Dsoa.instance.home=${DOMAIN_HOME}
+ -Dtangosol.coherence.wka1=soabpm-vm -Dtangosol.coherence.localhost=soabpm-vm
+   -Dtangosol.coherence.localport=8088 -Dtangosol.coherence.wka1.port=8088
+ -Dtangosol.coherence.management=all 
+-Dtangosol.coherence.log=/oracle/fmwhome/user_projects/domains/dev_soasuite/coherence.log
+ -Dtangosol.coherence.log.level=9
+ -Djavax.xml.soap.MessageFactory=oracle.j2ee.ws.saaj.soap.MessageFactoryImpl
+ -Dweblogic.transaction.blocking.commit=true -Dweblogic.transaction.blocking.rollback=true
+ -Djavax.net.ssl.trustStore=${WL_HOME}/server/lib/DemoTrust.jks"
+export EXTRA_JAVA_PROPERTIES
+
+and the coherence.log  AFTER!!! Request from web page to ucs
+
+2014-03-05 14:34:00.364/243.535 Oracle Coherence 3.7.1.1 <Info> (thread=pool-1-d
+aemon-thread-1, member=n/a): Loaded operational configuration from "jar:file:/or
+acle/fmwhome/oracle_common/modules/oracle.coherence/coherence.jar!/tangosol-cohe
+rence.xml"
+2014-03-05 14:34:00.389/243.560 Oracle Coherence 3.7.1.1 <Info> (thread=pool-1-d
+aemon-thread-1, member=n/a): Loaded operational overrides from "jar:file:/oracle
+/fmwhome/oracle_common/modules/oracle.coherence/coherence.jar!/tangosol-coherenc
+e-override-dev.xml"
+2014-03-05 14:34:00.391/243.562 Oracle Coherence 3.7.1.1 <Info> (thread=pool-1-d
+aemon-thread-1, member=n/a): Loaded operational overrides from "jar:file:/oracle
+/fmwhome/Oracle_SOA1/soa/modules/oracle.soa.fabric_11.1.1/fabric-runtime.jar!/ta
+ngosol-coherence-override.xml"
+2014-03-05 14:34:00.398/243.569 Oracle Coherence 3.7.1.1 <D5> (thread=pool-1-dae
+mon-thread-1, member=n/a): Optional configuration override "/custom-mbeans.xml" 
+is not specified
+2014-03-05 14:34:00.409/243.580 Oracle Coherence 3.7.1.1 <D6> (thread=pool-1-dae
+mon-thread-1, member=n/a): Loaded edition data from "jar:file:/oracle/fmwhome/or
+acle_common/modules/oracle.coherence/coherence.jar!/coherence-grid.xml"
+
+Oracle Coherence Version 3.7.1.1 Build 28901
+ Grid Edition: Development mode
+Copyright (c) 2000, 2011, Oracle and/or its affiliates. All rights reserved.
+
+2014-03-05 14:34:00.505/243.676 Oracle Coherence GE 3.7.1.1 <Info> (thread=pool-
+1-daemon-thread-1, member=n/a): Loaded cache configuration from "zip:/oracle/fmw
+home/user_projects/domains/dev_soasuite/servers/WC_Spaces/tmp/_WL_user/MyPortalA
+pplication_application1/qoklw9/APP-INF/lib/content-coherence-config.jar!/content
+-coherence-cache-config.xml"; this document does not refer to any schema definit
+ion and has not been validated.
+2014-03-05 14:34:00.718/243.889 Oracle Coherence GE 3.7.1.1 <Info> (thread=pool-
+1-daemon-thread-1, member=n/a): Loaded Reporter configuration from "jar:file:/or
+acle/fmwhome/oracle_common/modules/oracle.coherence/coherence.jar!/reports/repor
+t-group.xml"
+
+
+
+
+So Things I now know
+1) I did not have to have an external Coherence Cluster running.
+2) The caches are loaded when queries are made by contentPresenter
+3) The input config fiele MUST have the ending  -coherence-cache-config.xml
+4) It works to deploy a portal project to a WC_Spaces configured server.
+5) Having the product-coherence-cache-config.xml file in a jar in APP-INF/lib works as described in articles
+6) I installed patch WebCenter 11.1.1.7.1 version (Bundle Patch 1)
+   which included a fix for a bug where the coherence class is not used by content presenter
+   Bug 16290696 
+7) F5 on the browser ran my single jsp with a single repo query using a content provider task flow 
+   to get home.html and the following caches were created and returned.
+   (Without my debug version of the classes this info cannot be seen at runtime)
+
+   Cache  repo.ucm.indexFieldsCache.UCM
+   Cache  repo.ucm.nodeUidCache.UCM
+   Cache  repo.ucm.securityInfoCache.UCM
+   Cache  repo.ucm.nodePathToUidCache.UCM
+8) the article is probably wrong, you will not see <Coherence> in the MBean browser for the custom
+   PortalApp. but you will see if when looking at the mbeans for the server as described.
+9) Coherence logging can be enabled as above to prove coherence is doing something and that it is
+   reading a config from your portal app ear.
+10) At least in this case it did not matter that my domain was 11.1.1.7 and my jdev
+    webcenter extensions were 11.1.1.8
+11) Coherence.jar is not in the app ear, it is already available on the server classpath
+    through a shared library. 
+
+For question 3
+--------------
+Cache Stats - Mbeans
+
+Login  to em  http://localhost:7001/em
+Expand the Weblogic Domain node and right click on the next link,
+ 'your domain name' and choose 'System MBean Browser'
+In the MBean browser under 'Application Defined MBeans' section you will find
+a node  named
+
+oracle.wcps.cache/Server: WC_Spaces
+
+"note: AFTER you have made you ucs queries from you app, you will find this node"
+
+under it you will find stats for all defined app caches
+Including hit count and miss count.
+For example
+
+content.repo.ucm.indexedFieldsCache.UCM
+content.repo.ucm.nodePathToUidCache.UCM
+content.repo.ucm.nodeUIDCache.UCM
+content.repo.ucm.securityInfoCache.UCM
+content.repo.ucm.securityUserCache.UCM
+content.repo.ucm.typeNameCache.UCM
+content.repo.ucm.typeNamesCache.UCM
+
+
+
+REFERENCES
+----------
+
+Sample Coherence Config File
+http://docs.oracle.com/cd/E28280_01/webcenter.1111/e12405/wcadm_documents.htm#BABBDHIJ
+
+Admin Guide for WebCenter
+http://docs.oracle.com/cd/E21764_01/webcenter.1111/e12405/wcadm_documents.htm
+
+UCM Admin Guide
+http://docs.oracle.com/cd/E28280_01/doc.1111/e26692/intro.htm#BHCCJJDG
+
+WebCenter UCM Tutorial that I mostly followed to create a portal app and deploy on my
+wc_spaces server in BPM 11.1.1.7 domain
+http://docs.oracle.com/cd/E28280_01/webcenter.1111/e10273/toc.htm
+
+ATeam article on setup
+http://www.ateam-oracle.com/configure-coherence-for-oracle-webcenter-portal-framework-content-presenter-task-flow/
+
+ATeam article on tuning
+http://www.ateam-oracle.com/optimizing-content-cache-performance-in-webcenter-portal/
+
+Good Support article here
+Oracle Support Document 1503040.1 (Configuring Coherence Cache for Content Presenter Task Flow in High Availability WebCenter Environment) 
+can be found at: https://support.oracle.com/epmos/faces/DocumentDisplay?id=1503040.1
+Note in this article they show a JConsole session with mbeans for distributed caches.
+I did not see this at all when configured with the default local caches.
+I didnt see the Service or StorageManager nodes as shown in the article screen snapshot.
+
+
+Another good explanation at this blog
+http://webcenter.maggessy.com/2012/04/enabling-coherence-for-content.html
+
+

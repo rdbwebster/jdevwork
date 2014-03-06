@@ -1,0 +1,225 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<resources xmlns="http://xmlns.oracle.com/webcenter/portalframework/genericSiteResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <resourceType name="siteTemplate" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:52.367-08:00" description="Globe PageTemplate" displayName="Globe PageTemplate" guid="gsr3c7e8a48_a472_4316_97ff_7f026bcd4b16" jspx="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_globe.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:57:52.367-08:00" pageDef="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_globePageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:52.851-08:00" description="Swooshy PageTemplate" displayName="Swooshy PageTemplate" guid="gsr2d5afdf1_6cc5_4db2_9f9f_883b58d68bea" jspx="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_swooshy.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:57:52.851-08:00" pageDef="/oracle/webcenter/portalapp/pagetemplates/pageTemplate_swooshyPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+   </resourceType>
+   <resourceType name="pageStyle" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:12.376-08:00" description="Blank" displayName="Blank" guid="gsrc077a9a7_4774_4f04_a224_48440d89b0ea" jspx="/oracle/webcenter/page/pstemplates/TemplateBlank.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:12.376-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateBlankPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:13.426-08:00" description="Left Narrow" displayName="Left Narrow" guid="gsr867b92b4_fa78_41ab_9b4a_d4f234f26dad" jspx="/oracle/webcenter/page/pstemplates/TemplateNarrowLeft.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:13.426-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateNarrowLeftPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:14.456-08:00" description="Right Narrow" displayName="Right Narrow" guid="gsr8501284d_82e6_4523_861f_7e11f97d3b73" jspx="/oracle/webcenter/page/pstemplates/TemplateNarrowRight.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:14.456-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateNarrowRightPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:15.485-08:00" description="Three Column" displayName="Three Column" guid="gsr9cc4c923_01fb_404e_aecd_d8a16ec077d8" jspx="/oracle/webcenter/page/pstemplates/TemplateThreeColumn.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:15.485-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateThreeColumnPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:16.516-08:00" description="Stretch" displayName="Stretch" guid="gsref5d38c6_1885_48ba_a295_2718b21f9d22" jspx="/oracle/webcenter/page/pstemplates/TemplateStretch.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:16.516-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateStretchPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:17.546-08:00" description="Text Page" displayName="Text Page" guid="gsr0675fbd4_9fb7_4cf2_b8bb_dac533dd3561" jspx="/oracle/webcenter/page/pstemplates/TemplateText.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:17.546-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateTextPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:18.576-08:00" description="Web Page" displayName="Web Page" guid="gsra833ed4b_9138_4bd3_bc89_bbc7f5e8f8b7" jspx="/oracle/webcenter/page/pstemplates/TemplateWeb.jspx" modifiedBy="system" modifiedDate="2011-02-08T15:58:18.576-08:00" pageDef="/oracle/webcenter/page/pstemplates/TemplateWebPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+   </resourceType>
+   <resourceType name="dataPresenter" resourceBundle=""/>
+   <resourceType name="contentPresenter" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:56.925-08:00" description="Displays a single content item. Image and HTML content items are displayed directly in the browser. For other item types, details are displayed, along with a link to download the associated file." displayName="Default View" guid="gsr5859161d_ae19_483a_9274_590c08fea0a9" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/content-default-detail.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:57:56.926-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="single" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="content-type-name" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="content-type-is-defaultview" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.detail" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:57.946-08:00" description="Displays a single line with an icon and the item name as a link. When clicked, the associated file is either downloaded or the content is displayed." displayName="Default List Item View for Folders" guid="gsrafc8024c_ff29_404c_9a8d_3d01d90b5ae0" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/content-default-list-item-folder-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:57:57.946-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="single" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="content-type-name" seeded="true" value="IDC:Folder" visible="ALWAYS"/>
+            <customAttribute name="content-type-is-defaultview" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.item" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:58.966-08:00" description="Used by a single content item view to display a single line with an icon and item name as a link that either displays or downloads the item when clicked." displayName="Default List Item View" guid="gsr91c520b4_1662_4fca_867e_4385cbdc7ba6" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/content-default-list-item-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:57:58.966-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="single" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="content-type-name" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.item" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:59.986-08:00" description="Displays detailed information about a single content item, including creation date, modification date, creator, user who last modified the item, and path, as well as any comments." displayName="Default Document Details View" guid="gsr6c849787_8c03_4656_aebf_c94825eadf62" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/content-document-details.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:57:59.986-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="single" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="content-type-name" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.document.details" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:01.006-08:00" description="Displays multiple content items as a bulleted list. Only content items are displayed; sub-folders are omitted." displayName="Bulleted View" guid="gsrf1f299c9_584f_45bd_8776_01780cc64084" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-bulleted-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:01.007-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.bulleted" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:01.029-08:00" description="Displays multiple content items as tabs. Clicking a tab displays the associated item’s details." displayName="Tabbed View" guid="gsr074d4ef9_539a_4557_b3e4_c7656f70f9d1" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-panel-tabbed-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:01.029-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.panel.tabbed" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:02.066-08:00" description="Displays multiple content items in a carousel format. Users browse through items using a slider bar from left to right." displayName="Carousel View" guid="gsr5a57d6f1_b229_4dd2_b32a_eb6618ab3aa7" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-carousel-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:02.066-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.carousel" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:03.096-08:00" description="Displays multiple content items in a simple list." displayName="List View" guid="gsr092480fa_9b54_48eb_a479_5bc874ba6007" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-simple-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:03.097-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.simple" visible="ALWAYS"/>
+            <customAttribute name="category-is-defaultview" seeded="true" value="true" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:04.126-08:00" description="Displays multiple content items in a sortable table that includes the document name, date created, and date modified." displayName="Sortable Table View" guid="gsr9427855f_6953_4ed2_b1e7_fb430d66a481" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-detailed-tabular-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:04.126-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.tabular" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:05.156-08:00" description="Displays multiple content items in a tiled format, using icons to represent sub-folders and content items." displayName="Icon View" guid="gsr119fe75f_c534_4cc3_b996_1634c72bc48f" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-summary-tile-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:05.156-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.tile" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:06.186-08:00" description="Displays multiple content items in a list on the left. A panel on the right displays the details of a selected item." displayName="List with Details Panel View" guid="gsra7b9e42b_7b88_4059_b65a_b1a7ed25baaf" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-details-panel-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:06.186-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.details.panel" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:07.215-08:00" description="Displays multiple content items as a bulleted list. The name of the parent folder is displayed as a label above the list. Only content items are displayed; sub-folders are omitted." displayName="Bulleted with Folder Label View" guid="gsr64121307_c68f_442a_a077_1fb28dfdf89d" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-bulleted-label-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:07.215-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.bulleted.label" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:08.246-08:00" description="Displays multiple content items in an accordion (stacked) format. When an item is clicked, the other items collapse to reveal the selected item's details." displayName="Accordion View" guid="gsr961fb58a_5993_4891_95e5_e4af24546f96" iconURI="/oracle/webcenter/portalapp/shared/contentPresenter.png" jspx="/oracle/webcenter/content/templates/seeded/list-panel-accordion-view.jsff" modifiedBy="system" modifiedDate="2011-02-08T15:58:08.246-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes>
+            <customAttribute name="template-type" seeded="true" value="list" visible="ALWAYS"/>
+            <customAttribute name="content-repository" seeded="true" value="*" visible="ALWAYS"/>
+            <customAttribute name="category-id" seeded="true" value="oracle.webcenter.content.templates.default.category" visible="ALWAYS"/>
+            <customAttribute name="category-is-default" seeded="true" value="true" visible="ALWAYS"/>
+            <customAttribute name="category-name" seeded="true" value="Default Templates" visible="ALWAYS"/>
+            <customAttribute name="category-description" seeded="true" value="Default display templates for multiple content items." visible="ALWAYS"/>
+            <customAttribute name="category-name-key" seeded="true" value="DEFAULT_LIST_CATEGORY_NAME" visible="ALWAYS"/>
+            <customAttribute name="category-description-key" seeded="true" value="DEFAULT_LIST_CATEGORY_DESC" visible="ALWAYS"/>
+            <customAttribute name="view-id" seeded="true" value="oracle.webcenter.content.templates.default.list.accordion" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+   </resourceType>
+   <resourceType name="resourceCatalog" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:55.906-08:00" description="Default Resource Catalog" displayName="Default Resource Catalog" guid="gsr6c988f94_2c8d_486d_aed1_ba3ff44465c1" metadataFile="/oracle/webcenter/portalapp/catalogs/default-catalog.xml" modifiedBy="system" modifiedDate="2011-02-08T15:57:55.906-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+   </resourceType>
+   <resourceType name="navigation" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:54.885-08:00" description="Default Navigation" displayName="Default Navigation" guid="gsra4361888_4262_42e5_ba74_5b0ed9271020" metadataFile="/oracle/webcenter/portalapp/navigations/default-navigation-model.xml" modifiedBy="system" modifiedDate="2011-02-08T15:57:54.885-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+   </resourceType>
+   <resourceType name="skin" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:57:53.866-08:00" description="Default Portal Skin" displayName="Default Portal Skin" guid="gsra5c60b23_841e_450f_b0a5_061243354e4d" metadataFile="/oracle/webcenter/portalapp/skins/portal-skin.css" modifiedBy="system" modifiedDate="2011-02-08T15:57:53.866-08:00" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="false" usesCustomSecurity="false" version="11.1.1.4.0" visible="FALSE">
+         <customAttributes>
+            <customAttribute name="skinId" seeded="true" value="portal.desktop" visible="ALWAYS"/>
+            <customAttribute name="skinFamily" seeded="true" value="portal" visible="ALWAYS"/>
+            <customAttribute name="skinExtends" seeded="true" value="fusionFx-v1.desktop" visible="ALWAYS"/>
+         </customAttributes>
+      </resource>
+   </resourceType>
+   <resourceType name="taskFlowStyle" resourceBundle="">
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:09.285-08:00" description="Blank" displayName="Blank" guid="gsr0b090761_f3d7_44d0_abc2_365b210f6a7a" iconURI="/oracle/webcenter/portalapp/shared/taskFlowStyle_blank.png" jspx="/oracle/webcenter/datacomposer/mashupstyles/blank.jsff" metadataFile="/oracle/webcenter/datacomposer/mashupstyles/blank-definition.xml" modifiedBy="system" modifiedDate="2011-02-08T15:58:09.285-08:00" pageDef="/oracle/webcenter/datacomposer/mashupstyles/blankPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:10.315-08:00" description="Stretch" displayName="Stretch" guid="gsr881099d8_10b0_4a53_a4f2_66a34e647153" iconURI="/oracle/webcenter/portalapp/shared/taskFlowStyle_stretch.png" jspx="/oracle/webcenter/datacomposer/mashupstyles/stretch.jsff" metadataFile="/oracle/webcenter/datacomposer/mashupstyles/stretch-definition.xml" modifiedBy="system" modifiedDate="2011-02-08T15:58:10.315-08:00" pageDef="/oracle/webcenter/datacomposer/mashupstyles/stretchPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+      <resource contentDir="/oracle/webcenter/portalapp/shared" createdBy="system" createdDate="2011-02-08T15:58:11.346-08:00" description="Parameter Form" displayName="Parameter Form" guid="gsr722eb5c3_d0e6_4318_8175_5ec8d3563f87" iconURI="/oracle/webcenter/portalapp/shared/taskFlowStyle_pform.png" jspx="/oracle/webcenter/datacomposer/mashupstyles/pform.jsff" metadataFile="/oracle/webcenter/datacomposer/mashupstyles/pform-definition.xml" modifiedBy="system" modifiedDate="2011-02-08T15:58:11.346-08:00" pageDef="/oracle/webcenter/datacomposer/mashupstyles/pformPageDef.xml" resourceBundle="oracle.webcenter.framework.translations.TranslationsMDSResourceBundle" seeded="true" usesCustomSecurity="false" version="11.1.1.4.0" visible="TRUE">
+         <customAttributes/>
+      </resource>
+   </resourceType>
+   <resourceType name="taskFlow" resourceBundle=""/>
+   <resourceType name="dataControl" resourceBundle=""/>
+   <!-- WebCenter Data Integration 11.1.1.8.0 Hibernation
+   <resourceType name="scenario" resourceBundle=""/>
+   <resourceType name="businessObject" resourceBundle=""/>
+   -->
+</resources>
