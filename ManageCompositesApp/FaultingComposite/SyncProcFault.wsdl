@@ -1,0 +1,32 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="SyncProcFault"
+     targetNamespace="http://xmlns.oracle.com/ManageCompositesApp/FaultingComposite/SyncProcFault"
+     xmlns:ns1="http://schemas.oracle.com/bpel/extension"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:client="http://xmlns.oracle.com/ManageCompositesApp/FaultingComposite/SyncProcFault"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="SyncProcFault">
+        <plnk:role name="SyncProcFaultProvider" portType="client:SyncProcFault"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://schemas.oracle.com/bpel/extension" location="RuntimeFault.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/ManageCompositesApp/FaultingComposite/SyncProcFault"
+                 schemaLocation="xsd/SyncProcFault.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="SyncProcFaultRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="SyncProcFaultResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="SyncProcFault">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:SyncProcFaultRequestMessage"/>
+            <wsdl:output message="client:SyncProcFaultResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

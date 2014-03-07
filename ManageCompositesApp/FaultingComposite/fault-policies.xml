@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicies xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <faultPolicy version="0.0.1" id="FusionMidFaults"
+               xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Conditions>
+  
+      <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults"
+                name="medns:mediatorFault">
+        <condition>
+          <action ref="default-human-intervention"/>
+        </condition>
+      </faultName>
+      
+      http://tempuri.org/
+      
+      <faultName xmlns:ns1=" http://tempuri.org/" name="ns1:Fault"> <!-- Qname of Business/SOAP fault -->
+       <condition>
+        
+<!-- xpath condition based on fault payload -->
+         <action ref="default-human-intervention"/>
+       </condition>
+   </faultName>
+
+   
+   <!-- mediator business fault is inside mediatorFault -->
+      <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:mediatorFault">
+      <!-- mediatorFault is a bucket for all the mediator faults -->
+     <condition>
+       <test>
+            contains($fault.mediatorErrorCode, "TYPE_FATAL_MESH")
+       </test> 
+       <!-- Captures TYPE_FATAL_MESH errors -->
+       <action ref="default-human-intervention"/>
+     </condition>
+   </faultName>
+   
+   <!-- Adapter error http://download.oracle.com/docs/cd/E15523_01/integration.1111/e10231/life_cycle.htm#BABGCEGI -->
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:bindingFault">
+            <condition>
+                <action ref="ora-retry"/>
+            </condition>
+   </faultName>
+   
+   <!-- Adapter error http://download.oracle.com/docs/cd/E15523_01/integration.1111/e10231/life_cycle.htm#BABGCEGI -->
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:remoteFault">
+            <condition>
+                <action ref="ora-retry"/>
+            </condition>
+   </faultName>
+   
+   <!-- Adapter error http://download.oracle.com/docs/cd/E15523_01/integration.1111/e10231/life_cycle.htm#BABGCEGI -->
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:runtimeFault">
+            <condition>
+                <action ref="ora-retry"/>
+            </condition>
+   </faultName>
+   
+   <!-- For Mediator Fault policies are applicable to parallel routing rules only.
+         For sequential routing rules, the fault goes back to the caller and it is the responsibility of the caller
+         to handle the fault. If the caller is an adapter, then you can define rejection handlers on the inbound
+         adapter to take care of the errored out messages, that is, the rejected messages.
+         For more information about Rejection Handlers, refer to Oracle Fusion Middleware User's Guide for Technology Adapters.
+    -->     
+    
+   <!-- Mediator Adapter Faults -->
+   <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:mediatorFault">
+     <condition>
+       <test>$fault.faultCode = "1"</test> <!-- unique constraint violation in DB adapter-->
+       <action ref="default-human-intervention"/>
+     </condition>
+   </faultName>
+   
+   <!-- Mediator Adapter Faults -->
+   <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:mediatorFault">
+     <condition>
+       <action ref="default-human-intervention"/>
+     </condition>
+   </faultName>
+   
+   <!-- Mediator Adapter Faults -->
+   <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:mediatorFault">
+     <condition>
+       <test>$fault.faultCode = "ORA-00001"</test> <!-- unique constraint violation in DB adapter-->
+       <action ref="default-human-intervention"/>
+     </condition>
+   </faultName>
+   
+   <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:3303">
+<condition>
+<action ref="default-human-intervention"/>
+</condition>
+</faultName>
+<faultName xmlns:rjm="http://schemas.oracle.com/sca/rejectedmessages" name="rjm:GetNewStudentRegistrationFile">
+<condition>
+<action ref="default-human-intervention"/>
+</condition>
+</faultName>
+<faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:TYPE_ALL">
+<condition>
+<action ref="default-human-intervention"/>
+</condition>
+</faultName>
+<faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:mediatorException">
+<condition>
+<action ref="default-human-intervention"/>
+</condition>
+</faultName>
+    </Conditions>
+    
+    <Actions>
+      <!-- Generics -->
+      <Action id="default-terminate">
+        <abort/>
+      </Action>
+      
+      <Action id="default-replay-scope">
+        <replayScope/>
+      </Action>
+      
+      <Action id="default-rethrow-fault">
+        <rethrowFault/>
+      </Action>
+      
+      <Action id="default-human-intervention">
+        <humanIntervention/>
+      </Action>
+      
+      <Action id="MediatorJavaAction">
+        <!-- this is user provided class-->
+        <javaAction className="MediatorJavaAction.myClass"
+                    defaultAction="default-terminate">
+          <returnValue value="MANUAL" ref="default-human-intervention"/>
+        </javaAction>
+      </Action>
+      
+        <Action id="ora-retry">
+            <retry>
+                <retryCount>1</retryCount>
+                <retryInterval>2</retryInterval>
+            </retry>
+        </Action>
+
+    </Actions>
+  </faultPolicy>
+</faultPolicies>

@@ -21,6 +21,8 @@
 *.zip
 *.war
 *.ear
+*.sar
+*.mar
 
 # Logs and databases #
 ######################
