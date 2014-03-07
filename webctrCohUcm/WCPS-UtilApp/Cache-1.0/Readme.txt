@@ -8,3 +8,6 @@ MyPortalApplication project in the APP-INF/lib folder.
 and redeploy. 
 App has pref local classes enabled in weblogic-application.xml 
 so these classes will replace default ones at runtime.
+
+Also note addnl debug uses System.out.println
+So ensure stdout to logs is enabled in target WLS Server through cnosole
