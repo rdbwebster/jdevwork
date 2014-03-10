@@ -1,0 +1,158 @@
+<!DOCTYPE cache-config SYSTEM "cache-config.dtd">
+<cache-config>
+  <caching-scheme-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.nodeUidCache.*</cache-name>
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.nodePathToUidCache.*</cache-name>
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.securityInfoCache.*</cache-name>
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.typeNameCache.*</cache-name>
+      <scheme-name>ContentTypeCaches</scheme-name>
+    </cache-mapping>
+   <cache-mapping>
+      <cache-name>repo.ucm.typeNamesCache.*</cache-name>
+      <scheme-name>ContentTypeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>binaryCache.*</cache-name>
+      <scheme-name>ContentBinaryCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.searchCriteriaCache.*</cache-name>
+      <scheme-name>ContentSearchCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+        <cache-name>binaryContentTypeCache.*</cache-name>
+        <scheme-name>ContentBinaryCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name> repo.ucm.indexedFieldsCache.*</cache-name>
+      <scheme-name>ContentSearchCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.securityUserCache.*</cache-name>
+      <scheme-name>ContentSecurityCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.profileTriggerValueCache.*</cache-name>
+      <scheme-name>ContentProfileCaches</scheme-name>
+    </cache-mapping>
+  </caching-scheme-mapping>
+  
+  <caching-schemes>
+    <distributed-scheme>
+      <scheme-name>ContentNodeCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentNodeCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+    
+    <distributed-scheme>
+      <scheme-name>ContentTypeCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentTypeCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+    
+    <distributed-scheme>
+      <scheme-name>ContentBinaryCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentBinaryCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+     
+    <distributed-scheme>
+      <scheme-name>ContentSearchCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentSearchCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+
+    <distributed-scheme>
+      <scheme-name>ContentSecurityCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentSecurityCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+
+    <distributed-scheme>
+      <scheme-name>ContentProfileCaches</scheme-name>
+      <backing-map-scheme>
+        <local-scheme>
+          <scheme-ref>BM_ContentProfileCaches</scheme-ref>
+        </local-scheme>
+      </backing-map-scheme>
+      <backup-count>0</backup-count>
+      <autostart>true</autostart>
+    </distributed-scheme>
+     
+    <local-scheme>
+      <scheme-name>BM_ContentNodeCaches</scheme-name>
+      <expiry-delay>5m</expiry-delay>
+      <high-units>100</high-units>
+    </local-scheme>
+        
+    <local-scheme>
+      <scheme-name>BM_ContentTypeCaches</scheme-name>
+      <expiry-delay>30m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+    
+    <local-scheme>
+      <scheme-name>BM_ContentBinaryCaches</scheme-name>
+      <expiry-delay>5m</expiry-delay>
+      <high-units>1000000</high-units>
+      <unit-calculator>
+        <class-scheme>
+          <class-name>com.tangosol.net.cache.SimpleMemoryCalculator</class-name>
+        </class-scheme>
+      </unit-calculator>
+    </local-scheme>
+    
+    <local-scheme>
+      <scheme-name>BM_ContentSearchCaches</scheme-name>
+      <expiry-delay>5m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+
+   <local-scheme>
+      <scheme-name>BM_ContentSecurityCaches</scheme-name>
+      <expiry-delay>10m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+         
+   <local-scheme>
+      <scheme-name>BM_ContentProfileCaches</scheme-name>
+      <expiry-delay>1h</expiry-delay>
+      <high-units>100</high-units>
+    </local-scheme>
+  </caching-schemes>
+</cache-config>
