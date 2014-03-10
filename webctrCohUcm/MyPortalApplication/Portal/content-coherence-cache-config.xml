@@ -1,0 +1,185 @@
+<!DOCTYPE cache-config SYSTEM "cache-config.dtd">
+<cache-config>
+  <caching-scheme-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.nodeUidCache.*</cache-name>
+      <!--
+      Used to store a list of nodes for a repository based on an ID
+      Size according to the number of nodes in the repository being accessed.
+      Expire based on desired freshness vs. frequency of node data
+      being changed from another application.
+      Key - Node UID - String
+      Value - A UCM Node object
+      -->
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.nodePathToUidCache.*</cache-name>
+      <!--
+      Used to store a list of nodes for a repository based on a path
+      Size according to the number of nodes in the repository being accessed.
+      Expire based on desired freshness vs. frequency of node data
+      being changed from another application.
+      Size and TTL should probably be the same as nodeUidCache.
+      Key - Node path - String
+      Value - Node UID - String
+      -->
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.securityInfoCache.*</cache-name>
+      <!--
+      Caches security information for a Node.
+      Size according to the number of nodes in the repository.
+      Expire based on frequency of node security data updates.
+      Key - Node UID - String
+      Value - Security information for a node
+      -->
+      <scheme-name>ContentNodeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.typeNameCache.*</cache-name>
+      <!--
+      Caches Content Type information
+      Size according to the number of types in the repository.
+      Expire based on desired freshness vs. frequency of type information
+      being changed from another application.
+      Key - Content Type UID - String
+      Value - A ContentType object
+      -->
+      <scheme-name>ContentTypeCaches</scheme-name>
+    </cache-mapping>
+   <cache-mapping>
+      <cache-name>repo.ucm.typeNamesCache.*</cache-name>
+      <!--
+      Caches all the type names known to UCM.
+      All type names are cached together (one key), and thus all expire at the same time.
+      Expire based on the frequency of new types being created or removed.
+      Key - there is only one key to this cache: "typeNames".
+      Value - An ArrayList<String> of the type names.
+       -->
+      <scheme-name>ContentTypeCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>binaryCache.*</cache-name>
+      <!--
+      Caches binary property data.  Only binaries which are smaller than the
+      repository configuration property BinaryCacheMaxEntrySize are cached.
+      Size according to the number and frequency of use of smaller binary properties
+      (smaller than the BinaryCacheMaxEntrySize setting).  Or size based on the
+      total ammount of memory desired to be used for binary caches.
+      Expire based on desired freshness vs. frequency of binary data
+      being changed from another application.
+      Key - The Node UID and binary Property UID (nodeUid.propUid) - String
+      Value - The binary stream data - byte[]
+      -->
+      <scheme-name>ContentBinaryCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.searchCriteriaCache.*</cache-name>
+      <!--
+      Caches a set of search query to parameters to its equivalent in UCM search grammar.
+      Size according to the number of unique searches expected to be repeatedly performed.
+      The expiration should be set to eventually expire unused searches and save on cache memory.
+      Key - A set of searcy query parameters, in VCR terms.
+      Value - A set of search query parameters, in UCM terms.
+      -->
+      <scheme-name>ContentSearchCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name> repo.ucm.indexedFieldsCache.*</cache-name>
+      <!--
+      Holds the indexed (searchable) system properties for the repository.
+      There are 3 keys in this cache:  "indexedFields" holds all UCM indexed fields,
+      "indexedDocProps" holds indexed system properties for documents, and
+      "indexedFolderProps" holds indexed system properties for folders.
+      Expire according the the frequency of change of the indexed fields (probably very rare).
+      Key - String
+      Value - Map<String,Boolean> holds a key for each indexed property name, and a boolean indicating if that property is also sortable.
+      -->
+      <scheme-name>ContentSearchCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.securityUserCache.*</cache-name>
+      <!--
+      Caches the mapping between local user names (this application) and the name of
+      the same user in UCM.
+      Size according to the number of simultaneous and/or frequent users.
+      Expire based on frequency of user identity mapping updates.
+      Key - local user id - String
+      Value - UCM user id - String
+      -->
+      <scheme-name>ContentSecurityCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>repo.ucm.profileTriggerValueCache.*</cache-name>
+      <!--
+      Caches the profile trigger value for a given profile, so it is available when
+      documents are created.
+      The maximum number of entries is in this cache is implicitly limited to the maximum
+      number of profiles on the UCM server.
+      The cache entry size will also be very small.
+      The primary entry to vary is the expiration, which will depend upon how often
+      the profile trigger field values are modified in UCM.
+      Once a profile is configured on the UCM system, this should be a rare change,
+      so the expiration should be set appropriately.
+      Key - the UCM profile name - String
+      Value - the UCM profile trigger value - String
+      -->
+      <scheme-name>ContentProfileCaches</scheme-name>
+    </cache-mapping>
+    <cache-mapping>
+      <cache-name>binaryContentTypeCache.*</cache-name>
+      <scheme-name>ContentBinaryCaches</scheme-name>
+    </cache-mapping>
+  </caching-scheme-mapping>
+  <caching-schemes>
+    <!--
+    The following schemes are all local.  For a clustered deployment, 
+    a distributed, replcated, or other clustered scheme would be
+    better.
+    See coherence documentation for more information.
+    -->
+    <local-scheme>
+      <scheme-name>ContentNodeCaches</scheme-name>
+      <expiry-delay>1m</expiry-delay>
+      <high-units>100</high-units>
+    </local-scheme>
+    <local-scheme>
+      <scheme-name>ContentTypeCaches</scheme-name>
+      <expiry-delay>30m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+    <local-scheme>
+      <scheme-name>ContentBinaryCaches</scheme-name>
+      <expiry-delay>1m</expiry-delay>
+      <high-units>100000</high-units>
+      <unit-calculator>
+        <class-scheme>
+          <class-name>com.tangosol.net.cache.SimpleMemoryCalculator</class-name>
+        </class-scheme>
+      </unit-calculator>
+    </local-scheme>
+    <local-scheme>
+      <scheme-name>ContentSearchCaches</scheme-name>
+      <expiry-delay>5m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+   <local-scheme>
+      <scheme-name>ContentSecurityCaches</scheme-name>
+      <expiry-delay>10m</expiry-delay>
+      <high-units>50</high-units>
+    </local-scheme>
+   <local-scheme>
+      <scheme-name>ContentProfileCaches</scheme-name>
+      <expiry-delay>1h</expiry-delay>
+      <high-units>100</high-units>
+    </local-scheme>
+    <!--
+    <class-scheme>
+      <scheme-name>ContentDisabledCaches</scheme-name>
+      <class-name>com.tangosol.util.NullImplementation$NullMap</class-name>
+    </class-scheme>
+    -->
+  </caching-schemes>
+</cache-config>
