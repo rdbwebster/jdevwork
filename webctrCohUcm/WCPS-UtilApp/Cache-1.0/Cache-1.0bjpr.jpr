@@ -140,6 +140,10 @@
             <value n="id" v="Cache-1.0.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Adf-share-base.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -161,6 +165,15 @@
                <value n="id" v="Cache-1.0.jar"/>
                <value n="locked" v="true"/>
             </hash>
+            <hash>
+               <list n="classPath">
+                  <url protocol="jar" path="file:/oracle/fmwhome/oracle_common/modules/oracle.adf.share.ca_11.1.1/adf-share-base.jar!/"/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Adf-share-base.jar"/>
+               <value n="id" v="Adf-share-base.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -170,6 +183,10 @@
          </hash>
          <hash>
             <value n="id" v="Cache-1.0.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Adf-share-base.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

@@ -15,7 +15,7 @@
           <f:facet name="content">
             <pe:pageCustomizable id="hm_pgc1">
               <cust:panelCustomizable id="hm_pnc1" layout="scroll">
-                <af:region value="#{bindings.doclibcontentpresenter2.regionModel}"
+                <af:region value="#{bindings.doclibcontentpresenter1.regionModel}"
                            id="r1"/>
               </cust:panelCustomizable>
               <f:facet name="editor">

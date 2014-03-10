@@ -8,5 +8,6 @@
     <page viewId="${preferenceBean.defaultPageTemplate}"
           id="pageTemplateBinding" Refresh="ifNeeded"/>
   </executables>
-  <bindings/>
+  <bindings/>  
 </pageDefinition>
+   

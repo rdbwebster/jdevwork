@@ -33,7 +33,7 @@
                               isKey="true"/>
             <attribute value="/adf/webcenter/pages_qualifier.png"
                               attributeId="IconURI" isKey="false"/>
-          </attributes>
+          </attributes> 
           <contents>
             <customFolder id="dtTaskflows" path="task_flows"
                           factoryClass="oracle.adf.rc.adapter.library.ResourceLibraryFactory">

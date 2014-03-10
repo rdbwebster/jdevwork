@@ -149,7 +149,14 @@ acle/fmwhome/oracle_common/modules/oracle.coherence/coherence.jar!/reports/repor
 t-group.xml"
 
 
+Note:
+----- After adding the content-coherecne-config.jar file to the lib I no longer get the
+html displayed from UCM in my Portal App, When I remove the jar containing the config file
+the home.html text appears in the region again.
 
+Solution: I discovered that when I used the config example for HA from the support doc
+1503040.1     this worked correctly, could see content, and appears that repeated requests are not hitting UCM
+other than:   COLLECTION_GET_REFERENCE [dbUser=anonymous][IsJava=1] 
 
 So Things I now know
 1) I did not have to have an external Coherence Cluster running.
@@ -234,6 +241,10 @@ Note in this article they show a JConsole session with mbeans for distributed ca
 I did not see this at all when configured with the default local caches.
 I didnt see the Service or StorageManager nodes as shown in the article screen snapshot.
 
+Example in docs is missing one cache entry
+Oracle Support Document 1558542.1 
+(No Scheme For Cache: "binaryContentTypeCache" after enabling Coherence cache for Content Presenter) 
+can be found at: https://support.oracle.com/epmos/faces/DocumentDisplay?id=1558542.1
 
 Another good explanation at this blog
 http://webcenter.maggessy.com/2012/04/enabling-coherence-for-content.html
