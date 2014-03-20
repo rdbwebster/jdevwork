@@ -13,6 +13,8 @@ BPM Composer
    and checkin
    For checkout the files must be zipped into a file with a .exp extension
    and imported the zip into BPMComposer using the browser.
+   Note: you must create the new zip file without a MANIFEST.MF file for
+         composer import to decide it's valid. Use jar -cvMf myProject.exp .
 2) Confirm the project is visible and valid in BPM Composer
 
 JDeveloper Project 
