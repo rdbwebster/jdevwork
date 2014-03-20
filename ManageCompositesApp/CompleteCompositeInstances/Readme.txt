@@ -8,6 +8,7 @@ Test Setup
 
 To generate composite instances in a faulted state, deploy the FaultingComposite to a SOA default partition
 and run it using EM.  This will create a composite instance in state 10
+Deploy a 1.0 version and a 1.1 version so that two different composites with faulted instances will be found.
 
 Running the Utility
 -------------------

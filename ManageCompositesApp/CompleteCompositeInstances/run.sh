@@ -16,5 +16,5 @@ CLASSPATH=$CLASSPATH:$FMW_HOME/oracle_common/modules/wlthint3client.jar
 # p4 - SOA Server port
 # p5 - SOA Admin username
 # p6 - SOA Admin password
-java -cp $CLASSPATH com.managesoa.ManageComposites listFaulted default localhost 7001 weblogic welcome1
+java -cp $CLASSPATH com.managesoa.ManageComposites interactive default localhost 7001 weblogic welcome1
 ~                          
