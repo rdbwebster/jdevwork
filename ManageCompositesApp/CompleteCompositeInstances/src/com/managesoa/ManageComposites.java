@@ -17,7 +17,7 @@ import oracle.soa.management.util.CompositeFilter;
  * the utility accepts 1 of 3 different commands:
  * listFaulted - List all composites along with a count of the faulted instances for each composite.
  * removeFaulted - Remove all faulted instances for all composites
- * interactive - Process 1 composite at a time prompting the operator for a confirmation to remove faulted instances.
+ * interactive - Processes 1 composite at a time prompting the operator for a confirmation to remove faulted instances.
  * 
  * The following 4 dedendencies must be on the classpath at runtime:
  * 
@@ -76,7 +76,7 @@ public class ManageComposites {
      jndiProps.put(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");
      jndiProps.put(Context.SECURITY_PRINCIPAL, userid);
      jndiProps.put(Context.SECURITY_CREDENTIALS, password);
-     jndiProps.put("dedicated.connection", "true");
+ //    jndiProps.put("dedicated.connection", "true");
 
      System.out.println("Connecting to t3://" + host + ":" + port + "/soa-infra");
      Locator locator = LocatorFactory.createLocator(jndiProps);
